@@ -323,7 +323,7 @@ ul#cardContainer {
   list-style: none;
   display: grid;
   grid-template-columns: 1fr;
-  grid-gap: 10px;
+  grid-gap: 30px;
   @media #{ $medium } {
     grid-template-columns: 1fr 1fr;
     grid-gap: 40px;
@@ -343,6 +343,14 @@ ul#cardContainer {
     height: calc(100% - 20px);
     &:hover {
       box-shadow: 0 1px 3px 1px rgba(60,64,67,.2), 0 2px 8px 4px rgba(60,64,67,.1);
+    }
+    @media #{ $medium } {
+      padding: 20px;
+      height: calc(100% - 40px);
+    }
+    @media #{ $large-max } {
+      padding: 10px;
+      height: calc(100% - 20px);
     }
   }
   figure.image {

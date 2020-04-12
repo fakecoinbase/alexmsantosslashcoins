@@ -47,8 +47,10 @@ function loadCoins() {
     liBtc1yChange.textContent = data[0].price_change_percentage_1y_in_currency.toFixed(1) + '%';
     if (data[0].price_change_percentage_1h_in_currency.toFixed(1) <= 0) {
     	liBtc1hChange.style.color = "#e15241";
+        liBtcPrice.style.color = "#e15241";
     } else {
     	liBtc1hChange.style.color = "#4eaf0a";
+        liBtcPrice.style.color = "#4eaf0a";
     }
     if (data[0].price_change_percentage_24h_in_currency.toFixed(1) <= 0) {
     	liBtc24hChange.style.color = "#e15241";
@@ -84,8 +86,10 @@ function loadCoins() {
     liEth1yChange.textContent = data[1].price_change_percentage_1y_in_currency.toFixed(1) + '%';
     if (data[1].price_change_percentage_1h_in_currency.toFixed(1) <= 0) {
     	liEth1hChange.style.color = "#e15241";
+        liEthPrice.style.color = "#e15241";
     } else {
     	liEth1hChange.style.color = "#4eaf0a";
+        liEthPrice.style.color = "#4eaf0a";
     }
     if (data[1].price_change_percentage_24h_in_currency.toFixed(1) <= 0) {
     	liEth24hChange.style.color = "#e15241";
@@ -121,8 +125,10 @@ function loadCoins() {
     liXrp1yChange.textContent = data[2].price_change_percentage_1y_in_currency.toFixed(1) + '%';
     if (data[2].price_change_percentage_1h_in_currency.toFixed(1) <= 0) {
     	liXrp1hChange.style.color = "#e15241";
+        liXrpPrice.style.color = "#e15241";
     } else {
     	liXrp1hChange.style.color = "#4eaf0a";
+        liXrpPrice.style.color = "#4eaf0a";
     }
     if (data[2].price_change_percentage_24h_in_currency.toFixed(1) <= 0) {
     	liXrp24hChange.style.color = "#e15241";
@@ -158,8 +164,10 @@ function loadCoins() {
     liLtc1yChange.textContent = data[3].price_change_percentage_1y_in_currency.toFixed(1) + '%';
     if (data[3].price_change_percentage_1h_in_currency.toFixed(1) <= 0) {
     	liLtc1hChange.style.color = "#e15241";
+        liLtcPrice.style.color = "#e15241";
     } else {
     	liLtc1hChange.style.color = "#4eaf0a";
+        liLtcPrice.style.color = "#4eaf0a";
     }
     if (data[3].price_change_percentage_24h_in_currency.toFixed(1) <= 0) {
     	liLtc24hChange.style.color = "#e15241";
