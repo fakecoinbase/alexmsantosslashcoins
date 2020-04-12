@@ -329,8 +329,8 @@ ul#cardContainer {
     grid-gap: 40px;
   }
   @media #{ $large-max } {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-gap: 20px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 30px;
   }
   > li {
     border-radius: 3px;
