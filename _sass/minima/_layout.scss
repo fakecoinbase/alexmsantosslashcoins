@@ -353,6 +353,9 @@ ul#cardContainer {
       height: calc(100% - 20px);
     }
   }
+  a {
+    color: $text-color;
+  }
   figure.image {
     margin-bottom: 20px;
     display: flex;
@@ -370,11 +373,17 @@ ul#cardContainer {
     }
   }
   h1 {
-    margin: 0 0 2px;
+    margin: 0;
   }
-  .price {
-    font-size: 21px;
-    font-weight: 700;
+  .eur-value {
+    .price {
+      font-size: 21px;
+      font-weight: 700;
+    }
+    .price_change_24h {
+      margin-left: 10px;
+      font-size: 13px;
+    }
   }
   table {
     margin-top: 11px;
