@@ -73,7 +73,7 @@ function loadCoins() {
   .then(data => {
     console.log(data)
     liBtcPrice.textContent = '€' + data[0].current_price;
-    liBtcChange24h.textContent = data[0].price_change_24h + '€';
+    liBtcChange24h.textContent = data[0].price_change_24h + '€ /24h';
     liBtc1hChange.textContent = data[0].price_change_percentage_1h_in_currency.toFixed(1) + '%';
     liBtc24hChange.textContent = data[0].price_change_percentage_24h_in_currency.toFixed(1) + '%';
     liBtc7dChange.textContent = data[0].price_change_percentage_7d_in_currency.toFixed(1) + '%';
@@ -114,7 +114,7 @@ function loadCoins() {
         liBtc1yChange.style.color = "#4eaf0a";
     }
     liEthPrice.textContent = '€' + data[1].current_price;
-    liEthChange24h.textContent = data[1].price_change_24h + '€';
+    liEthChange24h.textContent = data[1].price_change_24h + '€ /24h';
     liEth1hChange.textContent = data[1].price_change_percentage_1h_in_currency.toFixed(1) + '%';
     liEth24hChange.textContent = data[1].price_change_percentage_24h_in_currency.toFixed(1) + '%';
     liEth7dChange.textContent = data[1].price_change_percentage_7d_in_currency.toFixed(1) + '%';
@@ -155,7 +155,7 @@ function loadCoins() {
         liEth1yChange.style.color = "#4eaf0a";
     }
     liXrpPrice.textContent = '€' + data[2].current_price;
-    liXrpChange24h.textContent = data[2].price_change_24h + '€';
+    liXrpChange24h.textContent = data[2].price_change_24h + '€ /24h';
     liXrp1hChange.textContent = data[2].price_change_percentage_1h_in_currency.toFixed(1) + '%';
     liXrp24hChange.textContent = data[2].price_change_percentage_24h_in_currency.toFixed(1) + '%';
     liXrp7dChange.textContent = data[2].price_change_percentage_7d_in_currency.toFixed(1) + '%';
@@ -196,7 +196,7 @@ function loadCoins() {
         liXrp1yChange.style.color = "#4eaf0a";
     }
     liBchPrice.textContent = '€' + data[3].current_price;
-    liBchChange24h.textContent = data[3].price_change_24h + '€';
+    liBchChange24h.textContent = data[3].price_change_24h + '€ /24h';
     liBch1hChange.textContent = data[3].price_change_percentage_1h_in_currency.toFixed(1) + '%';
     liBch24hChange.textContent = data[3].price_change_percentage_24h_in_currency.toFixed(1) + '%';
     liBch7dChange.textContent = data[3].price_change_percentage_7d_in_currency.toFixed(1) + '%';
@@ -237,7 +237,7 @@ function loadCoins() {
         liBch1yChange.style.color = "#4eaf0a";
     }
     liLtcPrice.textContent = '€' + data[4].current_price;
-    liLtcChange24h.textContent = data[4].price_change_24h + '€';
+    liLtcChange24h.textContent = data[4].price_change_24h + '€ /24h';
     liLtc1hChange.textContent = data[4].price_change_percentage_1h_in_currency.toFixed(1) + '%';
     liLtc24hChange.textContent = data[4].price_change_percentage_24h_in_currency.toFixed(1) + '%';
     liLtc7dChange.textContent = data[4].price_change_percentage_7d_in_currency.toFixed(1) + '%';
@@ -278,7 +278,7 @@ function loadCoins() {
         liLtc1yChange.style.color = "#4eaf0a";
     }
     lieosPrice.textContent = '€' + data[5].current_price;
-    lieosChange24h.textContent = data[5].price_change_24h + '€';
+    lieosChange24h.textContent = data[5].price_change_24h + '€ /24h';
     lieos1hChange.textContent = data[5].price_change_percentage_1h_in_currency.toFixed(1) + '%';
     lieos24hChange.textContent = data[5].price_change_percentage_24h_in_currency.toFixed(1) + '%';
     lieos7dChange.textContent = data[5].price_change_percentage_7d_in_currency.toFixed(1) + '%';
