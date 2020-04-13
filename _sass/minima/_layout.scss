@@ -377,6 +377,18 @@ ul#cardContainer {
       }
     }
   }
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+  }
+  .market-info {
+    font-size: 12px;
+    line-height: 17px;
+    text-align: right;
+    span {
+      display: block;
+    }
+  }
   h1 {
     margin: 0;
   }
