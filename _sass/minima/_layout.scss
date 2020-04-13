@@ -420,6 +420,9 @@ ul#cardContainer {
     color: #fff !important;
   }
   .downColor {
-    color: $down-color;
+    background: $down-color;
+    padding: 2px 8px;
+    border-radius: 15px;
+    color: #fff !important;
   }
 }

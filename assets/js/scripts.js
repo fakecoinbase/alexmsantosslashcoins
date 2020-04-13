@@ -30,7 +30,7 @@ function loadCoins() {
         if (data[i].price_change_percentage_1h_in_currency.toFixed(1) <= 0) {
             li1hChange[i].style.color = "#e15241";
             liPrice[i].style.color = "#e15241";
-        } else if (data[i].price_change_percentage_1h_in_currency.toFixed(1) >= 2) {
+        } else if (data[i].price_change_percentage_1h_in_currency.toFixed(1) >= 1.5) {
             liPrice[i].style.color = "#4eaf0a";
             liPrice[i].classList.add("upColor");
             li1hChange[i].style.color = "#4eaf0a";
