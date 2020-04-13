@@ -3,11 +3,11 @@
  */
 .site-header {
   //border-top: 5px solid $grey-color-dark;
-  border-bottom: 1px solid $grey-color-light;
-  height: 50px;
-  background-color: #fff;
-  position: fixed;
-  width: 100%;
+  //border-bottom: 1px solid $grey-color-light;
+  //height: 50px;
+  //background-color: #fff;
+  //position: fixed;
+  //width: 100%;
 
   // Positioning context for the mobile navigation icon
   //position: relative;
@@ -15,10 +15,10 @@
 
 .site-title {
   @include relative-font-size(1.625);
-  font-weight: 300;
+  font-weight: 700;
   line-height: 50px;
   letter-spacing: -1px;
-  margin-bottom: 0;
+  margin: 10px 0;
   float: left;
 
   &,
@@ -30,6 +30,7 @@
 .site-nav {
   float: right;
   line-height: 50px;
+  display: none;
 
   .nav-trigger {
       display: none;
@@ -109,8 +110,8 @@
  * Site footer
  */
 .site-footer {
-  border-top: 1px solid $grey-color-light;
-  padding: $spacing-unit 0 0;
+  //border-top: 1px solid $grey-color-light;
+  //padding: $spacing-unit 0 0;
   p {
     font-size: 15px;
     line-height: 22px;
@@ -119,7 +120,7 @@
 
 .footer-heading {
   @include relative-font-size(1.125);
-  margin-bottom: $spacing-unit / 2;
+  margin-bottom: 8px;
 }
 
 .contact-list,
@@ -184,7 +185,7 @@
  * Page content
  */
 .page-content {
-  padding: 90px 0 0;
+  padding: 10px 0 0;
   flex: 1;
 }
 

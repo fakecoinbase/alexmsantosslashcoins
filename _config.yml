@@ -21,7 +21,7 @@
 title: Crypto Coins Now
 email: email@cryptocoinsnow.org
 description: >- # this means to ignore newlines until "baseurl:"
-  A cryptocurrency is a digital asset designed to work as a medium of exchange that uses strong cryptography to secure financial transactions, control the creation of additional units, and verify the transfer of assets. Cryptocurrencies use decentralized control as opposed to centralized digital currency and central banking systems.
+  Powered by CoinGecko API
 baseurl: "/coins" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: coingecko
