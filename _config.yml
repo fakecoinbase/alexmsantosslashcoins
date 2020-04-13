@@ -31,7 +31,6 @@ github_username:  coingecko
 theme: minima
 plugins:
   - jekyll-feed
-  - jekyll-autoprefixer
 
 # Exclude from processing.
 # The following items will not be processed, by default.
