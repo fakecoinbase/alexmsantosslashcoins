@@ -11,8 +11,19 @@ const li30dChange = document.querySelectorAll(".change30d");
 const li1yChange = document.querySelectorAll(".change1y");
 const limarketCap24h = document.querySelectorAll(".market_cap");
 
+var myHeaders = new Headers();
+myHeaders.append('pragma', 'no-cache');
+myHeaders.append('cache-control', 'no-cache');
+
+var myInit = {
+  method: 'GET',
+  headers: myHeaders,
+};
+
+var myRequest = new Request(url);
+
 function loadCoins() {
-  fetch(url)
+  fetch(url, myInit)
   .then(response => response.json())
   .then(data => {
 
@@ -80,4 +91,4 @@ function loadCoins() {
 }
 
 loadCoins();
-setInterval(loadCoins, 60000);
+setInterval(loadCoins, 20000);
