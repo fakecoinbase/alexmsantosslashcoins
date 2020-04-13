@@ -30,9 +30,16 @@ function loadCoins() {
         if (data[i].price_change_percentage_1h_in_currency.toFixed(1) <= 0) {
             li1hChange[i].style.color = "#e15241";
             liPrice[i].style.color = "#e15241";
+        } else if (data[i].price_change_percentage_1h_in_currency.toFixed(1) >= 2) {
+            liPrice[i].style.color = "#4eaf0a";
+            liPrice[i].classList.add("upColor");
+            li1hChange[i].style.color = "#4eaf0a";
         } else {
             li1hChange[i].style.color = "#4eaf0a";
             liPrice[i].style.color = "#4eaf0a";
+            if (liPrice[i].classList.contains("upColor")) {
+                liPrice[i].classList.remove("upColor");
+            }
         }
         if (data[i].price_change_percentage_24h_in_currency.toFixed(1) <= 0) {
             li24hChange[i].style.color = "#e15241";
@@ -66,6 +73,7 @@ function loadCoins() {
         } else {
             limarketCap24h[i].style.color = "#4eaf0a";
         }
+
     }
 
   });

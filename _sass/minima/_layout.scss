@@ -413,4 +413,13 @@ ul#cardContainer {
       font-size: 13px;
     }
   }
+  .upColor {
+    background: $up-color;
+    padding: 2px 8px;
+    border-radius: 15px;
+    color: #fff !important;
+  }
+  .downColor {
+    color: $down-color;
+  }
 }

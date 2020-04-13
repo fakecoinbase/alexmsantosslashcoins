@@ -31,6 +31,9 @@ $medium:			"( min-width: 830px )";
 $large:				"( min-width: 1160px )";
 $large-max:			"( min-width: 1380px )";
 
+$up-color:			#4eaf0a;
+$down-color:		#e15241;
+
 // Use media queries like this:
 // @include media-query($on-palm) {
 //   .wrapper {
