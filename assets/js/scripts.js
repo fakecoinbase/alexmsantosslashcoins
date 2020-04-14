@@ -1,5 +1,3 @@
-const ul = document.getElementById('cardContainer');
-const url = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&ids=bitcoin%2Cethereum%2Cripple%2Clitecoin%2Cbitcoin-cash%2Ceos&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d%2C14d%2C30d%2C1y';
 const liPrice = document.querySelectorAll(".price");
 const liChange24h = document.querySelectorAll(".price_change_24h");
 const liPlus = document.querySelectorAll(".plus");
@@ -10,6 +8,7 @@ const li14dChange = document.querySelectorAll(".change14d");
 const li30dChange = document.querySelectorAll(".change30d");
 const li1yChange = document.querySelectorAll(".change1y");
 const limarketCap24h = document.querySelectorAll(".market_cap");
+const coinbasePriceBTC = document.querySelectorAll(".coinbase-price-btc");
 
 var myHeaders = new Headers();
 myHeaders.append('pragma', 'no-cache');
@@ -20,12 +19,12 @@ var myInit = {
   headers: myHeaders,
 };
 
-function loadCoins() {
-  fetch(url, myInit)
+function coinGeckoApi() {
+  fetch("https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&ids=bitcoin%2Cethereum%2Cripple%2Clitecoin%2Cbitcoin-cash%2Ceos&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d%2C14d%2C30d%2C1y", myInit)
   .then(response => response.json())
   .then(data => {
     for (i = 0; i < data.length; ++i) {
-        liPrice[i].textContent = '€' + data[i].current_price;
+        //liPrice[i].textContent = '€' + data[i].current_price;
         liChange24h[i].textContent = data[i].price_change_24h.toFixed(2) + '€ /24h';
         li1hChange[i].textContent = data[i].price_change_percentage_1h_in_currency.toFixed(1) + '%';
         li24hChange[i].textContent = data[i].price_change_percentage_24h_in_currency.toFixed(1) + '%';
@@ -93,5 +92,66 @@ function loadCoins() {
   });
 }
 
-loadCoins();
-setInterval(loadCoins, 20000);
+coinGeckoApi();
+//setInterval(coinGeckoApi, 20000);
+
+
+function coinbaseApi() {
+
+    var btc, eth, xrp;
+
+    fetch('https://api.pro.coinbase.com/products/BTC-EUR/ticker')
+        .then(function (response) {
+            return response.json();
+        }).then(function (data) {
+            btc = data;
+
+            return fetch('https://api.pro.coinbase.com/products/ETH-EUR/ticker');
+
+        }).then(function (response) {
+            return response.json();
+        }).then(function (data) {
+            eth = data;
+
+            return fetch('https://api.pro.coinbase.com/products/XRP-EUR/ticker');
+
+        }).then(function (response) {
+            return response.json();
+        }).then(function (data) {
+            xrp = data;
+
+            return fetch('https://api.pro.coinbase.com/products/BCH-EUR/ticker');
+
+        }).then(function (response) {
+            return response.json();
+        }).then(function (data) {
+            bch = data;
+
+            return fetch('https://api.pro.coinbase.com/products/LTC-EUR/ticker');
+
+        }).then(function (response) {
+            return response.json();
+        }).then(function (data) {
+            ltc = data;
+
+            return fetch('https://api.pro.coinbase.com/products/EOS-EUR/ticker');
+
+        }).then(function (response) {
+            return response.json();
+        }).then(function (data) {
+            eos = data;
+
+            liPrice[0].textContent = '€' + parseFloat(btc.price).toFixed(2);
+            liPrice[1].textContent = '€' + parseFloat(eth.price).toFixed(2);
+            liPrice[2].textContent = '€' + parseFloat(xrp.price).toFixed(4);
+            liPrice[3].textContent = '€' + parseFloat(bch.price).toFixed(2);
+            liPrice[4].textContent = '€' + parseFloat(ltc.price).toFixed(2);
+            liPrice[5].textContent = '€' + parseFloat(eos.price).toFixed(3);
+
+        }).catch(function (error) {
+            console.log(error);
+        });
+    }
+
+coinbaseApi();
+setInterval(coinbaseApi, 5000);
