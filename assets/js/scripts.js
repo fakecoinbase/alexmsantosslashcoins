@@ -20,13 +20,10 @@ var myInit = {
   headers: myHeaders,
 };
 
-var myRequest = new Request(url);
-
 function loadCoins() {
   fetch(url, myInit)
   .then(response => response.json())
   .then(data => {
-
     for (i = 0; i < data.length; ++i) {
         liPrice[i].textContent = '€' + data[i].current_price;
         liChange24h[i].textContent = data[i].price_change_24h.toFixed(2) + '€ /24h';
