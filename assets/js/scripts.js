@@ -85,9 +85,6 @@ function coinGeckoApi() {
   });
 }
 
-coinGeckoApi();
-//setInterval(coinGeckoApi, 20000);
-
 
 function coinbaseApi() {
 
@@ -148,3 +145,5 @@ function coinbaseApi() {
 
 coinbaseApi();
 setInterval(coinbaseApi, 5000);
+coinGeckoApi();
+setInterval(coinGeckoApi, 20000);
