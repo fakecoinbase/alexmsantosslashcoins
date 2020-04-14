@@ -34,25 +34,18 @@ function coinGeckoApi() {
         li1yChange[i].textContent = data[i].price_change_percentage_1y_in_currency.toFixed(1) + '%';
         limarketCap24h[i].textContent = data[i].market_cap_change_percentage_24h.toFixed(2) + '%';
 
-        if (data[i].price_change_percentage_1h_in_currency.toFixed(1) < -1.5) {
-            li1hChange[i].style.color = "#e15241";
-            liPrice[i].classList.add("downColor");
-        } else if (data[i].price_change_percentage_1h_in_currency.toFixed(1) <= 0) {
+        if (data[i].price_change_percentage_1h_in_currency.toFixed(1) <= 0) {
             li1hChange[i].style.color = "#e15241";
             liPrice[i].style.color = "#e15241";
-            if (liPrice[i].classList.contains("downColor")) {
-                liPrice[i].classList.remove("downColor");
-            }
-        } else if (data[i].price_change_percentage_1h_in_currency.toFixed(1) > 0 ) {
+        } else if (data[i].price_change_percentage_1h_in_currency.toFixed(1) > 1.4 ) {
             li1hChange[i].style.color = "#4eaf0a";
+            liPrice[i].classList.add("upColor");
+        } else {
             liPrice[i].style.color = "#4eaf0a";
+            li1hChange[i].style.color = "#4eaf0a";
             if (liPrice[i].classList.contains("upColor")) {
                 liPrice[i].classList.remove("upColor");
             }
-        } else if (data[i].price_change_percentage_1h_in_currency.toFixed(1) > 1.5 ) {
-            liPrice[i].style.color = "#4eaf0a";
-            liPrice[i].classList.add("upColor");
-            li1hChange[i].style.color = "#4eaf0a";
         }
         if (data[i].price_change_percentage_24h_in_currency.toFixed(1) <= 0) {
             li24hChange[i].style.color = "#e15241";
