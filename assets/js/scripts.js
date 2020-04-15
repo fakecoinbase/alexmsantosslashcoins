@@ -9,6 +9,7 @@ const li30dChange = document.querySelectorAll(".change30d");
 const li1yChange = document.querySelectorAll(".change1y");
 const limarketCap24h = document.querySelectorAll(".market_cap");
 const cbPrice = document.querySelectorAll(".cbprice");
+const sparkline = document.querySelectorAll(".sparkline");
 
 var myHeaders = new Headers();
 myHeaders.append('pragma', 'no-cache');
@@ -24,6 +25,7 @@ function coinGeckoApi() {
   .then(response => response.json())
   .then(data => {
     for (i = 0; i < data.length; ++i) {
+
         //liPrice[i].textContent = '€' + data[i].current_price;
         liChange24h[i].textContent = data[i].price_change_24h.toFixed(2) + '€ /24h';
         li1hChange[i].textContent = data[i].price_change_percentage_1h_in_currency.toFixed(1) + '%';
@@ -33,6 +35,13 @@ function coinGeckoApi() {
         li30dChange[i].textContent = data[i].price_change_percentage_30d_in_currency.toFixed(1) + '%';
         li1yChange[i].textContent = data[i].price_change_percentage_1y_in_currency.toFixed(1) + '%';
         limarketCap24h[i].textContent = data[i].market_cap_change_percentage_24h.toFixed(2) + '%';
+        sparkline[0].src = 'https://www.coingecko.com/coins/1/sparkline';
+        sparkline[1].src = 'https://www.coingecko.com/coins/279/sparkline';
+        sparkline[2].src = 'https://www.coingecko.com/coins/44/sparkline';
+        sparkline[3].src = 'https://www.coingecko.com/coins/780/sparkline';
+        sparkline[4].src = 'https://www.coingecko.com/coins/2/sparkline';
+        sparkline[5].src = 'https://www.coingecko.com/coins/738/sparkline';
+
 
         if (data[i].price_change_percentage_1h_in_currency.toFixed(1) <= 0) {
             li1hChange[i].style.color = "#e15241";
