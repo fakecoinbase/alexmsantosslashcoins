@@ -8,7 +8,7 @@ const li14dChange = document.querySelectorAll(".change14d");
 const li30dChange = document.querySelectorAll(".change30d");
 const li1yChange = document.querySelectorAll(".change1y");
 const limarketCap24h = document.querySelectorAll(".market_cap");
-const coinbasePriceBTC = document.querySelectorAll(".coinbase-price-btc");
+const cbPrice = document.querySelectorAll(".cbprice");
 
 var myHeaders = new Headers();
 myHeaders.append('pragma', 'no-cache');
@@ -24,7 +24,7 @@ function coinGeckoApi() {
   .then(response => response.json())
   .then(data => {
     for (i = 0; i < data.length; ++i) {
-        //liPrice[i].textContent = '€' + data[i].current_price;
+        liPrice[i].textContent = '€' + data[i].current_price;
         liChange24h[i].textContent = data[i].price_change_24h.toFixed(2) + '€ /24h';
         li1hChange[i].textContent = data[i].price_change_percentage_1h_in_currency.toFixed(1) + '%';
         li24hChange[i].textContent = data[i].price_change_percentage_24h_in_currency.toFixed(1) + '%';
@@ -37,14 +37,18 @@ function coinGeckoApi() {
         if (data[i].price_change_percentage_1h_in_currency.toFixed(1) <= 0) {
             li1hChange[i].style.color = "#e15241";
             liPrice[i].style.color = "#e15241";
+            cbPrice[i].style.color = "#e15241";
         } else if (data[i].price_change_percentage_1h_in_currency.toFixed(1) > 1.4 ) {
             li1hChange[i].style.color = "#4eaf0a";
             liPrice[i].classList.add("upColor");
+            cbPrice[i].classList.add("upColor");
         } else {
             liPrice[i].style.color = "#4eaf0a";
+            cbPrice[i].style.color = "#4eaf0a";
             li1hChange[i].style.color = "#4eaf0a";
-            if (liPrice[i].classList.contains("upColor")) {
+            if (liPrice[i].classList.contains("upColor") || cbPrice[i].classList.contains("upColor")) {
                 liPrice[i].classList.remove("upColor");
+                cbPrice[i].classList.remove("upColor");
             }
         }
         if (data[i].price_change_percentage_24h_in_currency.toFixed(1) <= 0) {
@@ -88,7 +92,7 @@ function coinGeckoApi() {
 
 function coinbaseApi() {
 
-    var btc, eth, xrp;
+    var btc, eth, xrp, bch, ltc, eos;
 
     fetch('https://api.pro.coinbase.com/products/BTC-EUR/ticker')
         .then(function (response) {
@@ -131,12 +135,12 @@ function coinbaseApi() {
         }).then(function (data) {
             eos = data;
 
-            liPrice[0].textContent = '€' + parseFloat(btc.price).toFixed(2);
-            liPrice[1].textContent = '€' + parseFloat(eth.price).toFixed(2);
-            liPrice[2].textContent = '€' + parseFloat(xrp.price).toFixed(4);
-            liPrice[3].textContent = '€' + parseFloat(bch.price).toFixed(2);
-            liPrice[4].textContent = '€' + parseFloat(ltc.price).toFixed(2);
-            liPrice[5].textContent = '€' + parseFloat(eos.price).toFixed(3);
+            cbPrice[0].textContent = '€' + parseFloat(btc.price).toFixed(2);
+            cbPrice[1].textContent = '€' + parseFloat(eth.price).toFixed(2);
+            cbPrice[2].textContent = '€' + parseFloat(xrp.price).toFixed(4);
+            cbPrice[3].textContent = '€' + parseFloat(bch.price).toFixed(2);
+            cbPrice[4].textContent = '€' + parseFloat(ltc.price).toFixed(2);
+            cbPrice[5].textContent = '€' + parseFloat(eos.price).toFixed(3);
 
         }).catch(function (error) {
             console.log(error);

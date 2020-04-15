@@ -324,7 +324,7 @@ ul#cardContainer {
   list-style: none;
   display: grid;
   grid-template-columns: 1fr;
-  grid-gap: 30px;
+  grid-gap: 15px;
   @media #{ $medium } {
     grid-template-columns: 1fr 1fr;
     grid-gap: 40px;
@@ -395,17 +395,17 @@ ul#cardContainer {
   .eur-value {
     font-size: 13px;
     margin-bottom: -8px;
-    .price {
-      font-size: 22px;
-      font-weight: 700;
-      margin-right: 10px;
-    }
     .plus {
       display: none;
     }
     .price_change_24h {
       font-size: 13px;
     }
+  }
+  .price {
+    font-size: 22px;
+    font-weight: 700;
+    margin-right: 10px;
   }
   table {
     margin-top: 0;
@@ -424,5 +424,44 @@ ul#cardContainer {
     padding: 2px 8px;
     border-radius: 15px;
     color: #fff !important;
+  }
+  &.coinbasePro {
+    @media #{ $medium } {
+      grid-row-gap: 20px;
+      grid-column-gap: 40px;
+    }
+    > li {
+      h1 {
+        font-size: 18px;
+      }
+      height: auto;
+      @media #{ $medium } {
+        padding: 20px;
+      }
+      @media #{ $large-max } {
+        padding: 10px;
+      }
+        a {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+          height: 100%;
+        }
+        p {
+          font-size: 13px;
+          margin: 0;
+          line-height: 19px;
+        }
+        .cbprice {
+          font-size: 22px;
+          font-weight: 700;
+          margin-right: 0;
+          line-height: 13px;
+        }
+    }
+    .card-header {
+      display: block;
+    }
   }
 }
