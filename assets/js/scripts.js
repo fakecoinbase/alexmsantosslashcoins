@@ -9,7 +9,6 @@ const li30dChange = document.querySelectorAll(".change30d");
 const li1yChange = document.querySelectorAll(".change1y");
 const limarketCap24h = document.querySelectorAll(".market_cap");
 const cbPrice = document.querySelectorAll(".cbprice");
-const sparkline = document.querySelectorAll(".sparkline");
 
 var myHeaders = new Headers();
 myHeaders.append('pragma', 'no-cache');
@@ -21,9 +20,10 @@ var myInit = {
 };
 
 function coinGeckoApi() {
-  fetch("https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&ids=bitcoin%2Cethereum%2Cripple%2Clitecoin%2Cbitcoin-cash%2Ceos&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d%2C14d%2C30d%2C1y", myInit)
+  fetch("https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&ids=bitcoin%2Cethereum%2Cripple%2Clitecoin%2Cbitcoin-cash%2Ceos&order=market_cap_desc&per_page=100&page=1&sparkline=true&price_change_percentage=1h%2C24h%2C7d%2C14d%2C30d%2C1y", myInit)
   .then(response => response.json())
   .then(data => {
+    var i;
     for (i = 0; i < data.length; ++i) {
 
         //liPrice[i].textContent = '€' + data[i].current_price;
@@ -35,14 +35,76 @@ function coinGeckoApi() {
         li30dChange[i].textContent = data[i].price_change_percentage_30d_in_currency.toFixed(1) + '%';
         li1yChange[i].textContent = data[i].price_change_percentage_1y_in_currency.toFixed(1) + '%';
         limarketCap24h[i].textContent = data[i].market_cap_change_percentage_24h.toFixed(2) + '%';
-        sparkline[0].src = 'https://www.coingecko.com/coins/1/sparkline';
-        sparkline[1].src = 'https://www.coingecko.com/coins/279/sparkline';
-        sparkline[2].src = 'https://www.coingecko.com/coins/44/sparkline';
-        sparkline[3].src = 'https://www.coingecko.com/coins/780/sparkline';
-        sparkline[4].src = 'https://www.coingecko.com/coins/2/sparkline';
-        sparkline[5].src = 'https://www.coingecko.com/coins/738/sparkline';
 
+        function sparklines() {
 
+            var btcValues = data[0].sparkline_in_7d.price;
+            var ethValues = data[1].sparkline_in_7d.price;
+            var xrpValues = data[2].sparkline_in_7d.price;
+            var bchValues = data[3].sparkline_in_7d.price;
+            var ltcValues = data[4].sparkline_in_7d.price;
+            var eosValues = data[5].sparkline_in_7d.price;
+
+            var btcData = {
+              labels: [],
+              series: [btcValues]
+            };
+            var ethData = {
+              labels: [],
+              series: [ethValues]
+            };
+            var xrpData = {
+              labels: [],
+              series: [xrpValues]
+            };
+            var bchData = {
+              labels: [],
+              series: [bchValues]
+            };
+            var ltcData = {
+              labels: [],
+              series: [ltcValues]
+            };
+            var eosData = {
+              labels: [],
+              series: [eosValues]
+            };
+
+            var options = {
+              showPoint: false,
+              lineSmooth: false,
+              width: '133px',
+              height: '70px',
+              axisX: {
+                showGrid: true,
+                showLabel: true,
+                offset: 0
+              },
+              axisY: {
+                showGrid: false,
+                showLabel: false,
+                offset: 0
+              },
+              chartPadding: {
+                top: 0,
+                right: 0,
+                bottom: 0,
+                left: 0
+              }
+            };
+
+            new Chartist.Line('#chart1', btcData, options);
+            new Chartist.Line('#chart2', ethData, options);
+            new Chartist.Line('#chart3', xrpData, options);
+            new Chartist.Line('#chart4', bchData, options);
+            new Chartist.Line('#chart5', ltcData, options);
+            new Chartist.Line('#chart6', eosData, options);
+
+        }
+
+        sparklines();
+
+        /////////// Colors ///////////
         if (data[i].price_change_percentage_1h_in_currency.toFixed(1) <= 0) {
             li1hChange[i].style.color = "#e15241";
             liPrice[i].style.color = "#e15241";

@@ -469,3 +469,24 @@ ul#cardContainer {
     }
   }
 }
+
+.ct-series-a .ct-line {
+  stroke: #4eaf0a !important;
+  /* Control the thikness of your lines */
+  stroke-width: 1px;
+}
+/*
+.ct-grids,
+.ct-labels {
+  display: none !important;
+}
+*/
+.ct-chart {
+  height: 70px !important;
+}
+
+.ct-grid {
+    stroke: rgba(0, 0, 0, 0.05) !important;
+    stroke-width: 1px !important;
+    stroke-dasharray: 1px !important;
+}
