@@ -8,7 +8,7 @@ const li14dChange = document.querySelectorAll(".change14d");
 const li30dChange = document.querySelectorAll(".change30d");
 const li1yChange = document.querySelectorAll(".change1y");
 const limarketCap24h = document.querySelectorAll(".market_cap");
-const cbPrice = document.querySelectorAll(".cbprice");
+//const cbPrice = document.querySelectorAll(".cbprice");
 
 var myHeaders = new Headers();
 myHeaders.append('pragma', 'no-cache');
@@ -105,18 +105,24 @@ function coinGeckoApi() {
         sparklines();
 
         /////////// Colors ///////////
-        if (data[i].price_change_percentage_1h_in_currency.toFixed(1) <= 0) {
+        if (data[i].price_change_percentage_1h_in_currency.toFixed(1) <= -1.5) {
+            li1hChange[i].style.color = "#e15241";
+            liPrice[i].classList.add("downColor");
+        } else if (data[i].price_change_percentage_1h_in_currency.toFixed(1) > -1.5 && data[i].price_change_percentage_1h_in_currency.toFixed(1) <= 0) {
             li1hChange[i].style.color = "#e15241";
             liPrice[i].style.color = "#e15241";
-        } else if (data[i].price_change_percentage_1h_in_currency.toFixed(1) > 1.4 ) {
-            li1hChange[i].style.color = "#4eaf0a";
-            liPrice[i].classList.add("upColor");
-        } else {
+            if (liPrice[i].classList.contains("downColor")) {
+                liPrice[i].classList.remove("downColor");
+            }
+        } else if (data[i].price_change_percentage_1h_in_currency.toFixed(1) >= 0 && data[i].price_change_percentage_1h_in_currency.toFixed(1) < 1.5) {
             liPrice[i].style.color = "#4eaf0a";
             li1hChange[i].style.color = "#4eaf0a";
             if (liPrice[i].classList.contains("upColor")) {
                 liPrice[i].classList.remove("upColor");
             }
+        } else {
+            li1hChange[i].style.color = "#4eaf0a";
+            liPrice[i].classList.add("upColor");
         }
         if (data[i].price_change_percentage_24h_in_currency.toFixed(1) <= 0) {
             li24hChange[i].style.color = "#e15241";
@@ -127,8 +133,10 @@ function coinGeckoApi() {
         }
         if (data[i].price_change_percentage_7d_in_currency.toFixed(1) <= 0) {
             li7dChange[i].style.color = "#e15241";
+            document.styleSheets[0].insertRule('.ct-line { stroke: #e15241 !important; }', 0);
         } else {
             li7dChange[i].style.color = "#4eaf0a";
+            document.styleSheets[0].insertRule('.ct-line { stroke: #4eaf0a !important; }', 0);
         }
         if (data[i].price_change_percentage_14d_in_currency.toFixed(1) <= 0) {
             li14dChange[i].style.color = "#e15241";
