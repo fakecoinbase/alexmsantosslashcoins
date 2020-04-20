@@ -44,9 +44,9 @@ function coinGeckoApi() {
             var bchValues = data[3].sparkline_in_7d.price;
             var ltcValues = data[4].sparkline_in_7d.price;
             var eosValues = data[5].sparkline_in_7d.price;
-            var xlmValues = data[5].sparkline_in_7d.price;
-            var etcValues = data[5].sparkline_in_7d.price;
-            var zrxValues = data[5].sparkline_in_7d.price;
+            var xlmValues = data[6].sparkline_in_7d.price;
+            var etcValues = data[7].sparkline_in_7d.price;
+            var zrxValues = data[8].sparkline_in_7d.price;
 
             var btcData = {
               labels: [],
