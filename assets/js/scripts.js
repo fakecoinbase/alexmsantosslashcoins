@@ -20,7 +20,7 @@ var myInit = {
 };
 
 function coinGeckoApi() {
-  fetch("https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&ids=bitcoin%2Cethereum%2Cripple%2Clitecoin%2Cbitcoin-cash%2Ceos&order=market_cap_desc&per_page=100&page=1&sparkline=true&price_change_percentage=1h%2C24h%2C7d%2C14d%2C30d%2C1y", myInit)
+  fetch("https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&ids=bitcoin%2Cethereum%2Cripple%2Clitecoin%2Cbitcoin-cash%2Ceos%2Cstellar%2Cethereum-classic%2C0x&order=market_cap_desc&per_page=100&page=1&sparkline=true&price_change_percentage=1h%2C24h%2C7d%2C14d%2C30d%2C1y", myInit)
   .then(response => response.json())
   .then(data => {
     var i;
@@ -44,6 +44,9 @@ function coinGeckoApi() {
             var bchValues = data[3].sparkline_in_7d.price;
             var ltcValues = data[4].sparkline_in_7d.price;
             var eosValues = data[5].sparkline_in_7d.price;
+            var xlmValues = data[5].sparkline_in_7d.price;
+            var etcValues = data[5].sparkline_in_7d.price;
+            var zrxValues = data[5].sparkline_in_7d.price;
 
             var btcData = {
               labels: [],
@@ -68,6 +71,18 @@ function coinGeckoApi() {
             var eosData = {
               labels: [],
               series: [eosValues]
+            };
+            var xlmData = {
+              labels: [],
+              series: [xlmValues]
+            };
+            var etcData = {
+              labels: [],
+              series: [etcValues]
+            };
+            var zrxData = {
+              labels: [],
+              series: [zrxValues]
             };
 
             var options = {
@@ -100,6 +115,9 @@ function coinGeckoApi() {
             new Chartist.Line('#chart4', bchData, options);
             new Chartist.Line('#chart5', ltcData, options);
             new Chartist.Line('#chart6', eosData, options);
+            new Chartist.Line('#chart7', xlmData, options);
+            new Chartist.Line('#chart8', etcData, options);
+            new Chartist.Line('#chart9', zrxData, options);
 
         }
 
@@ -166,7 +184,7 @@ function coinGeckoApi() {
 
 function coinbaseApi() {
 
-    var btc, eth, xrp, bch, ltc, eos;
+    var btc, eth, xrp, bch, ltc, eos, xlm, etc, zrx;
 
     fetch('https://api.pro.coinbase.com/products/BTC-EUR/ticker')
         .then(function (response) {
@@ -209,12 +227,36 @@ function coinbaseApi() {
         }).then(function (data) {
             eos = data;
 
+            return fetch('https://api.pro.coinbase.com/products/XLM-EUR/ticker');
+
+        }).then(function (response) {
+            return response.json();
+        }).then(function (data) {
+            xlm = data;
+
+            return fetch('https://api.pro.coinbase.com/products/ETC-EUR/ticker');
+
+        }).then(function (response) {
+            return response.json();
+        }).then(function (data) {
+            etc = data;
+
+            return fetch('https://api.pro.coinbase.com/products/ZRX-EUR/ticker');
+
+        }).then(function (response) {
+            return response.json();
+        }).then(function (data) {
+            zrx = data;
+
             liPrice[0].textContent = '€' + parseFloat(btc.price).toFixed(2);
             liPrice[1].textContent = '€' + parseFloat(eth.price).toFixed(2);
             liPrice[2].textContent = '€' + parseFloat(xrp.price).toFixed(4);
             liPrice[3].textContent = '€' + parseFloat(bch.price).toFixed(2);
             liPrice[4].textContent = '€' + parseFloat(ltc.price).toFixed(2);
             liPrice[5].textContent = '€' + parseFloat(eos.price).toFixed(3);
+            liPrice[6].textContent = '€' + parseFloat(xlm.price).toFixed(4);
+            liPrice[7].textContent = '€' + parseFloat(etc.price).toFixed(3);
+            liPrice[8].textContent = '€' + parseFloat(zrx.price).toFixed(4);
 
         }).catch(function (error) {
             console.log(error);
