@@ -341,7 +341,7 @@ ul#cardContainer {
     color: $text-color;
     padding: 10px;
     font-size: 14px;
-    height: calc(190px - 20px);
+    height: calc(210px - 20px);
     &:hover {
       box-shadow: 0 1px 3px 1px rgba(60,64,67,.2), 0 2px 8px 4px rgba(60,64,67,.1);
     }
@@ -409,7 +409,7 @@ ul#cardContainer {
   .price {
     font-size: 22px;
     font-weight: 700;
-    margin-right: 10px;
+    margin-right: 5px;
   }
   table {
     margin-top: 0;
@@ -475,17 +475,14 @@ ul#cardContainer {
   /* Control the thikness of your lines */
   stroke-width: 1px;
 }
-/*
 .ct-chart {
   height: 70px !important;
 }
-*/
 .ct-grid {
     stroke: rgba(0, 0, 0, 0.02) !important;
     stroke-width: 1px !important;
     stroke-dasharray: 2px !important;
 }
-
 .ct-area {
   fill: #444 !important;
   fill-opacity: 0.2 !important;
