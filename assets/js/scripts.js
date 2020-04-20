@@ -134,12 +134,8 @@ function coinGeckoApi() {
         }
         if (data[i].price_change_percentage_7d_in_currency.toFixed(1) <= 0) {
             li7dChange[i].style.color = "#e15241";
-            document.styleSheets[0].insertRule('.ct-line { stroke: #e15241 !important; }', 0);
-            document.styleSheets[0].insertRule('.ct-area { fill: #e15241 !important; }', 0);
         } else {
             li7dChange[i].style.color = "#4eaf0a";
-            document.styleSheets[0].insertRule('.ct-line { stroke: #4eaf0a !important; }', 0);
-            document.styleSheets[0].insertRule('.ct-area { fill: #4eaf0a !important; }', 0);
         }
         if (data[i].price_change_percentage_14d_in_currency.toFixed(1) <= 0) {
             li14dChange[i].style.color = "#e15241";
