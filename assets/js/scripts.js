@@ -133,11 +133,17 @@ function coinGeckoApi() {
             if (liPrice[i].classList.contains("downColor")) {
                 liPrice[i].classList.remove("downColor");
             }
+            if (liPrice[i].classList.contains("upColor")) {
+                liPrice[i].classList.remove("upColor");
+            }
         } else if (data[i].price_change_percentage_1h_in_currency.toFixed(1) >= 0 && data[i].price_change_percentage_1h_in_currency.toFixed(1) < 1.5) {
             liPrice[i].style.color = "#4eaf0a";
             li1hChange[i].style.color = "#4eaf0a";
             if (liPrice[i].classList.contains("upColor")) {
                 liPrice[i].classList.remove("upColor");
+            }
+            if (liPrice[i].classList.contains("downColor")) {
+                liPrice[i].classList.remove("downColor");
             }
         } else {
             li1hChange[i].style.color = "#4eaf0a";
