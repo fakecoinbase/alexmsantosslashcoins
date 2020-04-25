@@ -381,12 +381,18 @@ ul#cardContainer {
     display: flex;
     justify-content: space-between;
   }
+  .coin-symbol {
+    text-transform: uppercase;
+  }
   .market-info {
     font-size: 12px;
     line-height: 19px;
     text-align: right;
     span {
       display: block;
+    }
+    .market_cap {
+      color: #BBB;
     }
   }
   h1 {
@@ -398,23 +404,29 @@ ul#cardContainer {
     justify-content: space-between;
   }
   .eur-value {
-    font-size: 13px;
     .plus {
       display: none;
     }
     .price_change_24h {
-      font-size: 13px;
+      font-size: 12px;
+    }
+    > div {
+      margin-bottom: -4px;
     }
   }
   .price {
     font-size: 22px;
+    line-height: 30px;
     font-weight: 700;
-    margin-right: 5px;
+    color: #BBB;
   }
   table {
     margin-top: 0;
     @media #{ $large-max } {
       font-size: 13px;
+    }
+    td {
+      color: #BBB;
     }
   }
   .upColor {

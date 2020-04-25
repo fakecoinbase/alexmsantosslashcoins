@@ -1,3 +1,6 @@
+const coinImg = document.querySelectorAll(".coin-img");
+const coinName = document.querySelectorAll(".coin-name");
+const coinSymbol = document.querySelectorAll(".coin-symbol");
 const liPrice = document.querySelectorAll(".price");
 const liChange24h = document.querySelectorAll(".price_change_24h");
 const liPlus = document.querySelectorAll(".plus");
@@ -9,24 +12,32 @@ const li30dChange = document.querySelectorAll(".change30d");
 const li1yChange = document.querySelectorAll(".change1y");
 const limarketCap24h = document.querySelectorAll(".market_cap");
 //const cbPrice = document.querySelectorAll(".cbprice");
+const siteTitle = document.querySelectorAll("title");
+const cardUl = document.getElementById("cardContainer");
+
 
 var myHeaders = new Headers();
 myHeaders.append('pragma', 'no-cache');
 myHeaders.append('cache-control', 'no-cache');
 
 var myInit = {
-  method: 'GET',
-  headers: myHeaders,
+method: 'GET',
+headers: myHeaders,
 };
 
 function coinGeckoApi() {
+
   fetch("https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&ids=bitcoin%2Cethereum%2Cripple%2Clitecoin%2Cbitcoin-cash%2Ceos%2Cstellar%2Cethereum-classic%2C0x&order=market_cap_desc&per_page=100&page=1&sparkline=true&price_change_percentage=1h%2C24h%2C7d%2C14d%2C30d%2C1y", myInit)
   .then(response => response.json())
   .then(data => {
     var i;
     for (i = 0; i < data.length; ++i) {
 
+        //console.log(data);
         //liPrice[i].textContent = '€' + data[i].current_price;
+        coinImg[i].src = data[i].image;
+        coinName[i].textContent = data[i].name;
+        coinSymbol[i].textContent = data[i].symbol;
         liChange24h[i].textContent = data[i].price_change_24h.toFixed(2) + '€ /24h';
         li1hChange[i].textContent = data[i].price_change_percentage_1h_in_currency.toFixed(1) + '%';
         li24hChange[i].textContent = data[i].price_change_percentage_24h_in_currency.toFixed(1) + '%';
@@ -88,7 +99,7 @@ function coinGeckoApi() {
             var options = {
               showPoint: false,
               lineSmooth: false,
-              width: '133px',
+              width: '156px',
               height: '70px',
               showArea: true,
               axisX: {
@@ -256,13 +267,14 @@ function coinbaseApi() {
 
             liPrice[0].textContent = '€' + parseFloat(btc.price).toFixed(2);
             liPrice[1].textContent = '€' + parseFloat(eth.price).toFixed(2);
+            //siteTitle[0].textContent = 'ETH €' + parseFloat(eth.price).toFixed(2);
             liPrice[2].textContent = '€' + parseFloat(xrp.price).toFixed(4);
             liPrice[3].textContent = '€' + parseFloat(bch.price).toFixed(2);
             liPrice[4].textContent = '€' + parseFloat(ltc.price).toFixed(2);
             liPrice[5].textContent = '€' + parseFloat(eos.price).toFixed(3);
-            liPrice[6].textContent = '€' + parseFloat(xlm.price).toFixed(4);
+            liPrice[6].textContent = '€' + parseFloat(xlm.price).toFixed(5);
             liPrice[7].textContent = '€' + parseFloat(etc.price).toFixed(3);
-            liPrice[8].textContent = '€' + parseFloat(zrx.price).toFixed(4);
+            liPrice[8].textContent = '€' + parseFloat(zrx.price).toFixed(5);
 
         }).catch(function (error) {
             console.log(error);
@@ -273,3 +285,90 @@ coinbaseApi();
 setInterval(coinbaseApi, 5000);
 coinGeckoApi();
 setInterval(coinGeckoApi, 20000);
+
+
+
+
+
+/*
+function coinbase() {
+
+    const fetchBTC = fetch('https://api.pro.coinbase.com/products/BTC-EUR/ticker');
+    const fetchETH = fetch('https://api.pro.coinbase.com/products/ETH-EUR/ticker');
+    const fetchXRP = fetch('https://api.pro.coinbase.com/products/XRP-EUR/ticker');
+    const fetchBCH = fetch('https://api.pro.coinbase.com/products/BCH-EUR/ticker');
+    const fetchLTC = fetch('https://api.pro.coinbase.com/products/LTC-EUR/ticker');
+    const fetchEOS = fetch('https://api.pro.coinbase.com/products/EOS-EUR/ticker');
+    const fetchXLM = fetch('https://api.pro.coinbase.com/products/XLM-EUR/ticker');
+    const fetchETC = fetch('https://api.pro.coinbase.com/products/ETC-EUR/ticker');
+    const fetchZRX = fetch('https://api.pro.coinbase.com/products/ZRX-EUR/ticker');
+
+    Promise.all([fetchBTC, fetchETH, fetchXRP, fetchBCH, fetchLTC, fetchEOS, fetchXLM, fetchETC, fetchZRX]).then(values => {
+        return Promise.all(values.map(r => r.json()));
+    }).then(([btc, eth, xrp, bch, ltc, eos, xlm, etc, zrx]) => {
+        liPrice[0].textContent = '€' + parseFloat(btc.price).toFixed(2);
+        liPrice[1].textContent = '€' + parseFloat(eth.price).toFixed(2);
+        liPrice[2].textContent = '€' + parseFloat(xrp.price).toFixed(4);
+        liPrice[3].textContent = '€' + parseFloat(bch.price).toFixed(2);
+        liPrice[4].textContent = '€' + parseFloat(ltc.price).toFixed(2);
+        liPrice[5].textContent = '€' + parseFloat(eos.price).toFixed(3);
+        liPrice[6].textContent = '€' + parseFloat(xlm.price).toFixed(4);
+        liPrice[7].textContent = '€' + parseFloat(etc.price).toFixed(3);
+        liPrice[8].textContent = '€' + parseFloat(zrx.price).toFixed(4);
+    }).catch(function (error) {
+        console.log(error);
+    });
+
+}
+*/
+
+
+
+
+/*
+function addLiMarkup() {
+
+    var liMarkup = '<li id="bitcoin" class="card">' +
+        '<a href="https://www.coingecko.com/en/coins/bitcoin" target="_blank">' +
+          '<header class="card-header">' +
+            '<figure class="image">' +
+              '<img src="https://assets.coingecko.com/coins/images/1/large/bitcoin.png">' +
+              '<figcaption>' +
+                '<h1>Bitcoin</h1>' +
+                '<p>BTC</p>' +
+              '</figcaption>' +
+            '</figure>' +
+            '<div class="market-info">' +
+              '<span>24h market cap:</span>' +
+              '<span class="market_cap">%</span>' +
+            '</div>' +
+          '</header>' +
+          '<div class="mid-wrapper">' +
+            '<div class="eur-value"><span id="btcAnimate"><span class="price">€</span></span><span class="plus">+</span><span class="price_change_24h"></span></div>' +
+            '<div class="ct-chart" id="chart1"></div>' +
+          '</div>' +
+          '<table>' +
+            '<tr>' +
+              '<th>1h</th>' +
+              '<th>24h</th>' +
+              '<th>7d</th>' +
+              '<th>14d</th>' +
+              '<th>30d</th>' +
+              '<th>1y</th>' +
+            '</tr>' +
+            '<tr>' +
+              '<td class="change1h">%</td>' +
+              '<td class="change24h">%</td>' +
+              '<td class="change7d">%</td>' +
+              '<td class="change14d">%</td>' +
+              '<td class="change30d">%</td>' +
+              '<td class="change1y">%</td>' +
+            '</tr>' +
+          '</table>' +
+        '</a>' +
+      '</li>';
+
+    cardUl.innerHTML = liMarkup + cardUl.innerHTML;
+}
+addLiMarkup();
+*/
