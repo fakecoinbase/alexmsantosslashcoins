@@ -412,6 +412,7 @@ ul#cardContainer {
     }
     > div {
       margin-bottom: -4px;
+      line-height: 20px;
     }
   }
   .price {
@@ -431,15 +432,19 @@ ul#cardContainer {
   }
   .upColor {
     background: $up-color;
-    padding: 2px 8px;
+    padding: 0 8px;
     border-radius: 15px;
     color: #fff !important;
+    display: block;
+    margin-bottom: 6px;
   }
   .downColor {
     background: $down-color;
-    padding: 2px 8px;
+    padding: 0 8px;
     border-radius: 15px;
     color: #fff !important;
+    display: block;
+    margin-bottom: 6px;
   }
   &.coinbasePro {
     @media #{ $medium } {

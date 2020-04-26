@@ -99,8 +99,8 @@ function coinGeckoApi() {
             var options = {
               showPoint: false,
               lineSmooth: false,
-              width: '156px',
-              height: '70px',
+              width: '110px',
+              height: '60px',
               showArea: true,
               axisX: {
                 showGrid: true,
@@ -120,15 +120,46 @@ function coinGeckoApi() {
               }
             };
 
-            new Chartist.Line('#chart1', btcData, options);
-            new Chartist.Line('#chart2', ethData, options);
-            new Chartist.Line('#chart3', xrpData, options);
-            new Chartist.Line('#chart4', bchData, options);
-            new Chartist.Line('#chart5', ltcData, options);
-            new Chartist.Line('#chart6', eosData, options);
-            new Chartist.Line('#chart7', xlmData, options);
-            new Chartist.Line('#chart8', etcData, options);
-            new Chartist.Line('#chart9', zrxData, options);
+            var responsiveOptions = [
+              ['screen and (min-width: 400px)', {
+                  width: '156px',
+                  height: '70px'
+                  }],
+              ['screen and (min-width: 550px)', {
+                  width: '250px',
+                  height: '70px'
+                  }],
+              ['screen and (min-width: 650px)', {
+                  width: '300px',
+                  height: '70px'
+                  }],
+              ['screen and (min-width: 830px)', {
+                  width: '156px',
+                  height: '70px'
+                  }],
+              ['screen and (min-width: 950px)', {
+                  width: '185px',
+                  height: '70px'
+                  }],
+              ['screen and (min-width: 1070px)', {
+                  width: '200px',
+                  height: '70px'
+                  }],
+              ['screen and (min-width: 1250px)', {
+                  width: '175px',
+                  height: '70px'
+                  }]
+            ];
+
+            new Chartist.Line('#chart1', btcData, options, responsiveOptions);
+            new Chartist.Line('#chart2', ethData, options, responsiveOptions);
+            new Chartist.Line('#chart3', xrpData, options, responsiveOptions);
+            new Chartist.Line('#chart4', bchData, options, responsiveOptions);
+            new Chartist.Line('#chart5', ltcData, options, responsiveOptions);
+            new Chartist.Line('#chart6', eosData, options, responsiveOptions);
+            new Chartist.Line('#chart7', xlmData, options, responsiveOptions);
+            new Chartist.Line('#chart8', etcData, options, responsiveOptions);
+            new Chartist.Line('#chart9', zrxData, options, responsiveOptions);
 
         }
 
@@ -272,9 +303,9 @@ function coinbaseApi() {
             liPrice[3].textContent = '€' + parseFloat(bch.price).toFixed(2);
             liPrice[4].textContent = '€' + parseFloat(ltc.price).toFixed(2);
             liPrice[5].textContent = '€' + parseFloat(eos.price).toFixed(3);
-            liPrice[6].textContent = '€' + parseFloat(xlm.price).toFixed(5);
+            liPrice[6].textContent = '€' + parseFloat(xlm.price).toFixed(6);
             liPrice[7].textContent = '€' + parseFloat(etc.price).toFixed(3);
-            liPrice[8].textContent = '€' + parseFloat(zrx.price).toFixed(5);
+            liPrice[8].textContent = '€' + parseFloat(zrx.price).toFixed(6);
 
         }).catch(function (error) {
             console.log(error);
