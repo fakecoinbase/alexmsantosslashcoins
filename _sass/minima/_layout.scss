@@ -380,7 +380,7 @@ ul#cardContainer {
     display: flex;
     align-items: center;
     img {
-      width: 44px;
+      width: 32px;
       height: auto;
     }
     figcaption {
@@ -411,6 +411,7 @@ ul#cardContainer {
   }
   h1 {
     margin: 0;
+    font-size: 18px;
   }
   .mid-wrapper {
     display: flex;
