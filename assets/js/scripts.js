@@ -163,66 +163,69 @@ function coinGeckoApi() {
 
         }
 
-        sparklines();
+        function addColors() {
 
-        /////////// Colors ///////////
-        if (data[i].price_change_percentage_1h_in_currency.toFixed(1) <= -1.5) {
-            li1hChange[i].style.color = "#e15241";
-            liPrice[i].classList.add("downColor");
-        } else if (data[i].price_change_percentage_1h_in_currency.toFixed(1) > -1.5 && data[i].price_change_percentage_1h_in_currency.toFixed(1) <= 0) {
-            li1hChange[i].style.color = "#e15241";
-            liPrice[i].style.color = "#e15241";
-            if (liPrice[i].classList.contains("downColor")) {
-                liPrice[i].classList.remove("downColor");
-            }
-            if (liPrice[i].classList.contains("upColor")) {
-                liPrice[i].classList.remove("upColor");
-            }
-        } else if (data[i].price_change_percentage_1h_in_currency.toFixed(1) >= 0 && data[i].price_change_percentage_1h_in_currency.toFixed(1) < 1.5) {
-            liPrice[i].style.color = "#4eaf0a";
-            li1hChange[i].style.color = "#4eaf0a";
-            if (liPrice[i].classList.contains("upColor")) {
-                liPrice[i].classList.remove("upColor");
-            }
-            if (liPrice[i].classList.contains("downColor")) {
-                liPrice[i].classList.remove("downColor");
-            }
-        } else {
-            li1hChange[i].style.color = "#4eaf0a";
-            liPrice[i].classList.add("upColor");
+          if (data[i].price_change_percentage_1h_in_currency.toFixed(1) <= -1.5) {
+              li1hChange[i].style.color = "#e15241";
+              liPrice[i].classList.add("downColor");
+          } else if (data[i].price_change_percentage_1h_in_currency.toFixed(1) > -1.5 && data[i].price_change_percentage_1h_in_currency.toFixed(1) <= 0) {
+              li1hChange[i].style.color = "#e15241";
+              liPrice[i].style.color = "#e15241";
+              if (liPrice[i].classList.contains("downColor")) {
+                  liPrice[i].classList.remove("downColor");
+              }
+              if (liPrice[i].classList.contains("upColor")) {
+                  liPrice[i].classList.remove("upColor");
+              }
+          } else if (data[i].price_change_percentage_1h_in_currency.toFixed(1) >= 0 && data[i].price_change_percentage_1h_in_currency.toFixed(1) < 1.5) {
+              liPrice[i].style.color = "#4eaf0a";
+              li1hChange[i].style.color = "#4eaf0a";
+              if (liPrice[i].classList.contains("upColor")) {
+                  liPrice[i].classList.remove("upColor");
+              }
+              if (liPrice[i].classList.contains("downColor")) {
+                  liPrice[i].classList.remove("downColor");
+              }
+          } else {
+              li1hChange[i].style.color = "#4eaf0a";
+              liPrice[i].classList.add("upColor");
+          }
+          if (data[i].price_change_percentage_24h_in_currency.toFixed(1) <= 0) {
+              li24hChange[i].style.color = "#e15241";
+              liPlus[i].style.display = "none";
+          } else {
+              li24hChange[i].style.color = "#4eaf0a";
+              liPlus[i].style.display = "inline";
+          }
+          if (data[i].price_change_percentage_7d_in_currency.toFixed(1) <= 0) {
+              li7dChange[i].style.color = "#e15241";
+          } else {
+              li7dChange[i].style.color = "#4eaf0a";
+          }
+          if (data[i].price_change_percentage_14d_in_currency.toFixed(1) <= 0) {
+              li14dChange[i].style.color = "#e15241";
+          } else {
+              li14dChange[i].style.color = "#4eaf0a";
+          }
+          if (data[i].price_change_percentage_30d_in_currency.toFixed(1) <= 0) {
+              li30dChange[i].style.color = "#e15241";
+          } else {
+              li30dChange[i].style.color = "#4eaf0a";
+          }
+          if (data[i].price_change_percentage_1y_in_currency.toFixed(1) <= 0) {
+              li1yChange[i].style.color = "#e15241";
+          } else {
+              li1yChange[i].style.color = "#4eaf0a";
+          }
+          if (data[i].market_cap_change_percentage_24h.toFixed(1) <= 0) {
+              limarketCap24h[i].style.color = "#e15241";
+          } else {
+              limarketCap24h[i].style.color = "#4eaf0a";
+          }
+
         }
-        if (data[i].price_change_percentage_24h_in_currency.toFixed(1) <= 0) {
-            li24hChange[i].style.color = "#e15241";
-            liPlus[i].style.display = "none";
-        } else {
-            li24hChange[i].style.color = "#4eaf0a";
-            liPlus[i].style.display = "inline";
-        }
-        if (data[i].price_change_percentage_7d_in_currency.toFixed(1) <= 0) {
-            li7dChange[i].style.color = "#e15241";
-        } else {
-            li7dChange[i].style.color = "#4eaf0a";
-        }
-        if (data[i].price_change_percentage_14d_in_currency.toFixed(1) <= 0) {
-            li14dChange[i].style.color = "#e15241";
-        } else {
-            li14dChange[i].style.color = "#4eaf0a";
-        }
-        if (data[i].price_change_percentage_30d_in_currency.toFixed(1) <= 0) {
-            li30dChange[i].style.color = "#e15241";
-        } else {
-            li30dChange[i].style.color = "#4eaf0a";
-        }
-        if (data[i].price_change_percentage_1y_in_currency.toFixed(1) <= 0) {
-            li1yChange[i].style.color = "#e15241";
-        } else {
-            li1yChange[i].style.color = "#4eaf0a";
-        }
-        if (data[i].market_cap_change_percentage_24h.toFixed(1) <= 0) {
-            limarketCap24h[i].style.color = "#e15241";
-        } else {
-            limarketCap24h[i].style.color = "#4eaf0a";
-        }
+        sparklines();
+        addColors();
 
     }
 
