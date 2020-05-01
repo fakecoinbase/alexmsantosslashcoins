@@ -4,6 +4,7 @@
     {%- assign default_paths = site.pages | map: "path" -%}
     {%- assign page_paths = site.header_pages | default: default_paths -%}
     <a class="site-title" title="Home" rel="author" href="{{ "/" | relative_url }}">{%- include now-logo.html -%} <!--{{ site.title | escape }}--></a>
+    <p class="tagline">{{ site.description | escape }}</p>
 
     {%- if page_paths -%}
       <nav class="site-nav">

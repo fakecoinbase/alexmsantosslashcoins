@@ -11,20 +11,32 @@
 
   // Positioning context for the mobile navigation icon
   //position: relative;
+  padding-top: 30px;
+  .wrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 6px;
+  }
 }
 
 .site-title {
-  @include relative-font-size(1.625);
-  font-weight: 700;
-  line-height: 50px;
-  letter-spacing: -1px;
-  margin: 35px 0 0;
-  float: left;
+  //@include relative-font-size(1.625);
+  //font-weight: 700;
+  //line-height: 50px;
+  //letter-spacing: -1px;
+  //margin: 35px 0 0;
+  height: 38px;
 
   &,
   &:visited {
     color: $grey-color-dark;
   }
+}
+
+p.tagline {
+  font-size: 14px;
+  line-height: 18px;
+  margin: 0 0 0 16px;
 }
 
 .site-nav {
@@ -113,8 +125,8 @@
   //border-top: 1px solid $grey-color-light;
   //padding: $spacing-unit 0 0;
   p {
-    font-size: 15px;
-    line-height: 22px;
+    font-size: 14px;
+    line-height: 18px;
   }
 }
 
