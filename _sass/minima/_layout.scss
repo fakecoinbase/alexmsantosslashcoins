@@ -262,19 +262,20 @@ p.tagline {
 
 .grid-container {
   @media #{ $large } {
-    display: grid;
-    grid-template-areas: '. article';
-    grid-template-columns: 1fr 4fr;
+    //display: grid;
+    //grid-template-areas: '. article';
+    //grid-template-columns: 1fr 4fr;
   }
 }
 .post {
+  margin-top: 20px;
   @media #{ $large } {
-    grid-area: article;
-    display: grid;
-    grid-template-areas: 'postHeader .' 'postContent .';
-    grid-template-columns: 3fr 1fr;
+    //grid-area: article;
+    //display: grid;
+    //grid-template-areas: 'postHeader .' 'postContent .';
+    //grid-template-columns: 3fr 1fr;
     &-header {
-      grid-area: postHeader;
+      //grid-area: postHeader;
       //margin-bottom: $spacing-unit;
     }
   }
