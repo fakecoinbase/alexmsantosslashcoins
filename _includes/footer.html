@@ -18,5 +18,10 @@
 
 {% if layout.name == "homepage" %}
 	<script src="{{ "/assets/js/chartist.min.js" | relative_url }}"></script>
-	<script src="{{ "/assets/js/scripts.js" | relative_url }}"></script>
+	<script src="{{ "/assets/js/coins.js" | relative_url }}"></script>
+{% endif %}
+
+{% if page.title == "Bitcoin" %}
+  <script src="{{ "/assets/js/chartist.min.js" | relative_url }}"></script>
+  <script src="{{ "/assets/js/btc.js" | relative_url }}"></script>
 {% endif %}
