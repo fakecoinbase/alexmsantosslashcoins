@@ -16,5 +16,7 @@
 
 </footer>
 
-<script src="{{ "/assets/js/chartist.min.js" | relative_url }}"></script>
-<script src="{{ "/assets/js/scripts.js" | relative_url }}"></script>
+{% if layout.name == "homepage" %}
+	<script src="{{ "/assets/js/chartist.min.js" | relative_url }}"></script>
+	<script src="{{ "/assets/js/scripts.js" | relative_url }}"></script>
+{% endif %}

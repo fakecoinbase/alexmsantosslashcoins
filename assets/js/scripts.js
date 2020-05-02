@@ -151,15 +151,15 @@ function coinGeckoApi() {
                   }]
             ];
 
-            new Chartist.Line('#chart1', btcData, options, responsiveOptions);
-            new Chartist.Line('#chart2', ethData, options, responsiveOptions);
-            new Chartist.Line('#chart3', xrpData, options, responsiveOptions);
-            new Chartist.Line('#chart4', bchData, options, responsiveOptions);
-            new Chartist.Line('#chart5', ltcData, options, responsiveOptions);
-            new Chartist.Line('#chart6', eosData, options, responsiveOptions);
-            new Chartist.Line('#chart7', xlmData, options, responsiveOptions);
-            new Chartist.Line('#chart8', etcData, options, responsiveOptions);
-            new Chartist.Line('#chart9', zrxData, options, responsiveOptions);
+            new Chartist.Line('#chart-btc', btcData, options, responsiveOptions);
+            new Chartist.Line('#chart-eth', ethData, options, responsiveOptions);
+            new Chartist.Line('#chart-xrp', xrpData, options, responsiveOptions);
+            new Chartist.Line('#chart-bch', bchData, options, responsiveOptions);
+            new Chartist.Line('#chart-ltc', ltcData, options, responsiveOptions);
+            new Chartist.Line('#chart-eos', eosData, options, responsiveOptions);
+            new Chartist.Line('#chart-xlm', xlmData, options, responsiveOptions);
+            new Chartist.Line('#chart-etc', etcData, options, responsiveOptions);
+            new Chartist.Line('#chart-zrx', zrxData, options, responsiveOptions);
 
         }
 
