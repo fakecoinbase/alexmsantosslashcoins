@@ -268,7 +268,9 @@ p.tagline {
   }
 }
 .post {
-  margin-top: 20px;
+  border-top: 1px solid #eee;
+  padding-top: 35px;
+  margin-top: 15px;
   @media #{ $large } {
     //grid-area: article;
     //display: grid;
@@ -501,6 +503,9 @@ ul#cardContainer {
       display: block;
     }
   }
+  .ct-chart {
+    height: 70px !important;
+  }
 }
 
 .ct-series-a .ct-line {
@@ -508,15 +513,63 @@ ul#cardContainer {
   /* Control the thikness of your lines */
   stroke-width: 1px;
 }
-.ct-chart {
-  height: 70px !important;
-}
 .ct-grid {
-    stroke: rgba(0, 0, 0, 0.02) !important;
-    stroke-width: 1px !important;
-    stroke-dasharray: 2px !important;
+  stroke: rgba(0, 0, 0, 0.02) !important;
+  stroke-width: 1px !important;
+  stroke-dasharray: 2px !important;
 }
 .ct-area {
   fill: #444 !important;
   fill-opacity: 0.2 !important;
+}
+
+#coin-wrapper {
+  .coin-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    figure {
+      display: flex;
+      align-items: center;
+      img {
+        width: 70px;
+        height: 70px;
+      }
+      figcaption {
+        margin-left: 20px;
+        h1 {
+          font-size: 40px;
+          line-height: 44px;
+          margin: 0;
+        }
+        p {
+          text-transform: uppercase;
+          margin: 0;
+        }
+      }
+    }
+    .market-info {
+      text-align: right;
+      font-size: 15px;
+      line-height: 23px;
+    }
+  }
+  .mid-wrapper {
+    margin-bottom: 30px;
+    .eur-value {
+      margin-bottom: 30px;
+    }
+    .price {
+      font-size: 48px;
+      line-height: 52px;
+      margin-right: 15px;
+    }
+  }
+  .ct-grid {
+    @media #{ $medium } {
+      stroke: rgba(0, 0, 0, 0.1) !important;
+      stroke-dasharray: 3px !important;
+    }
+  }
 }

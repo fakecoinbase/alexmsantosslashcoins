@@ -56,9 +56,7 @@ function coinGeckoApi() {
 
         var options = {
           showPoint: false,
-          lineSmooth: false,
-          width: '110px',
-          height: '60px',
+          lineSmooth: true,
           showArea: true,
           axisX: {
             showGrid: true,
@@ -80,32 +78,13 @@ function coinGeckoApi() {
 
         var responsiveOptions = [
           ['screen and (min-width: 400px)', {
-              width: '156px',
-              height: '70px'
-              }],
-          ['screen and (min-width: 550px)', {
-              width: '250px',
-              height: '70px'
-              }],
-          ['screen and (min-width: 650px)', {
-              width: '300px',
-              height: '70px'
+              height: '250px'
               }],
           ['screen and (min-width: 830px)', {
-              width: '156px',
-              height: '70px'
+              height: '270px'
               }],
           ['screen and (min-width: 950px)', {
-              width: '185px',
-              height: '70px'
-              }],
-          ['screen and (min-width: 1070px)', {
-              width: '200px',
-              height: '70px'
-              }],
-          ['screen and (min-width: 1250px)', {
-              width: '175px',
-              height: '70px'
+              height: '300px'
               }]
         ];
 
