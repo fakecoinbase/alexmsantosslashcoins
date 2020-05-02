@@ -14,7 +14,6 @@ const limarketCap24h = document.querySelectorAll(".market_cap");
 //const cbPrice = document.querySelectorAll(".cbprice");
 const siteTitle = document.querySelectorAll("title");
 const cardUl = document.getElementById("cardContainer");
-const btcPrice = document.getElementById("btc-price");
 
 
 var myHeaders = new Headers();
@@ -314,24 +313,6 @@ function coinbaseApi() {
         }).catch(function (error) {
             console.log(error);
         });
-
-      function animateValue(id, start, end, duration) {
-          var range = end - start;
-          var current = start;
-          var increment = end > start? 1 : -1;
-          var stepTime = Math.abs(Math.floor(duration / range));
-          var obj = document.getElementById(id);
-          var timer = setInterval(function() {
-              current += increment;
-              obj.innerHTML = current;
-              if (current == end) {
-                  clearInterval(timer);
-              }
-          }, stepTime);
-      }
-
-      animateValue(btcPrice, 100, 25, 5000);
-
     }
 
 coinbaseApi();
