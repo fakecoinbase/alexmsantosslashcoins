@@ -31,7 +31,7 @@ function coinGeckoApi() {
   .then(response => response.json())
   .then(data => {
 
-    console.log(data[0]);
+    //console.log(data[0]);
     //liPrice[0].textContent = '€' + data[0].current_price;
     coinImg[0].src = data[0].image;
     coinName[0].textContent = data[0].name;
