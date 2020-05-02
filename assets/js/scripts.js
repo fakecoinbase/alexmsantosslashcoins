@@ -301,7 +301,6 @@ function coinbaseApi() {
 
             liPrice[0].textContent = '€' + parseFloat(btc.price).toFixed(2);
             liPrice[1].textContent = '€' + parseFloat(eth.price).toFixed(2);
-            //siteTitle[0].textContent = 'ETH €' + parseFloat(eth.price).toFixed(2);
             liPrice[2].textContent = '€' + parseFloat(xrp.price).toFixed(4);
             liPrice[3].textContent = '€' + parseFloat(bch.price).toFixed(2);
             liPrice[4].textContent = '€' + parseFloat(ltc.price).toFixed(2);
@@ -309,6 +308,7 @@ function coinbaseApi() {
             liPrice[6].textContent = '€' + parseFloat(xlm.price).toFixed(6);
             liPrice[7].textContent = '€' + parseFloat(etc.price).toFixed(3);
             liPrice[8].textContent = '€' + parseFloat(zrx.price).toFixed(6);
+            siteTitle[0].textContent = 'BTC €' + parseFloat(btc.price).toFixed(2) + ' · ETH €' + parseFloat(eth.price).toFixed(2) + ' - Crypto Coins Now';
 
         }).catch(function (error) {
             console.log(error);
