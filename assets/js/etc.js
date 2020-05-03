@@ -31,7 +31,7 @@ headers: myHeaders,
 
 function coinGeckoApi() {
 
-  fetch("https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&ids=ethereum&sparkline=true&price_change_percentage=1h%2C24h%2C7d%2C14d%2C30d%2C1y", myInit)
+  fetch("https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&ids=ethereum-classic&sparkline=true&price_change_percentage=1h%2C24h%2C7d%2C14d%2C30d%2C1y", myInit)
   .then(response => response.json())
   .then(data => {
 
@@ -39,7 +39,7 @@ function coinGeckoApi() {
     coinImg[0].src = data[0].image;
     coinName[0].textContent = data[0].name;
     coinSymbol[0].textContent = data[0].symbol;
-    liChange24h[0].textContent = data[0].price_change_24h.toFixed(2) + '€ /24h';
+    liChange24h[0].textContent = data[0].price_change_24h.toFixed(3) + '€ /24h';
     li1hChange[0].textContent = data[0].price_change_percentage_1h_in_currency.toFixed(1) + '%';
     li24hChange[0].textContent = data[0].price_change_percentage_24h_in_currency.toFixed(1) + '%';
     li7dChange[0].textContent = data[0].price_change_percentage_7d_in_currency.toFixed(1) + '%';
@@ -49,8 +49,8 @@ function coinGeckoApi() {
     liMarketCapRank[0].textContent = '#' + data[0].market_cap_rank;
     liMarketCap[0].textContent = '€' + data[0].market_cap;
     limarketCap24h[0].textContent = data[0].market_cap_change_percentage_24h.toFixed(2) + '%';
-    liHigh24h[0].textContent = '€' + data[0].high_24h.toFixed(2);
-    liLow24h[0].textContent = '€' + data[0].low_24h.toFixed(2);
+    liHigh24h[0].textContent = '€' + data[0].high_24h.toFixed(3);
+    liLow24h[0].textContent = '€' + data[0].low_24h.toFixed(3);
 
     function sparklines() {
 
@@ -171,14 +171,14 @@ function coinbaseApi() {
 
     var coin;
 
-    fetch('https://api.pro.coinbase.com/products/ETH-EUR/ticker')
+    fetch('https://api.pro.coinbase.com/products/ETC-EUR/ticker')
         .then(function (response) {
             return response.json();
         }).then(function (data) {
             coin = data;
 
-            liPrice[0].textContent = '€' + parseFloat(coin.price).toFixed(2);
-            siteTitle[0].textContent = 'ETH €' + parseFloat(coin.price).toFixed(2) + ' - Crypto Coins Now';
+            liPrice[0].textContent = '€' + parseFloat(coin.price).toFixed(3);
+            siteTitle[0].textContent = 'ETC €' + parseFloat(coin.price).toFixed(3) + ' - Crypto Coins Now';
 
         }).catch(function (error) {
             console.log(error);

@@ -31,7 +31,7 @@ headers: myHeaders,
 
 function coinGeckoApi() {
 
-  fetch("https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&ids=ethereum&sparkline=true&price_change_percentage=1h%2C24h%2C7d%2C14d%2C30d%2C1y", myInit)
+  fetch("https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&ids=bitcoin-cash&sparkline=true&price_change_percentage=1h%2C24h%2C7d%2C14d%2C30d%2C1y", myInit)
   .then(response => response.json())
   .then(data => {
 
@@ -171,14 +171,14 @@ function coinbaseApi() {
 
     var coin;
 
-    fetch('https://api.pro.coinbase.com/products/ETH-EUR/ticker')
+    fetch('https://api.pro.coinbase.com/products/BCH-EUR/ticker')
         .then(function (response) {
             return response.json();
         }).then(function (data) {
             coin = data;
 
             liPrice[0].textContent = '€' + parseFloat(coin.price).toFixed(2);
-            siteTitle[0].textContent = 'ETH €' + parseFloat(coin.price).toFixed(2) + ' - Crypto Coins Now';
+            siteTitle[0].textContent = 'BCH €' + parseFloat(coin.price).toFixed(2) + ' - Crypto Coins Now';
 
         }).catch(function (error) {
             console.log(error);

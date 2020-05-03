@@ -34,8 +34,7 @@ function coinGeckoApi() {
   fetch("https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&ids=bitcoin&sparkline=true&price_change_percentage=1h%2C24h%2C7d%2C14d%2C30d%2C1y", myInit)
   .then(response => response.json())
   .then(data => {
-
-    console.log(data[0]);
+    
     //liPrice[0].textContent = '€' + data[0].current_price;
     coinImg[0].src = data[0].image;
     coinName[0].textContent = data[0].name;

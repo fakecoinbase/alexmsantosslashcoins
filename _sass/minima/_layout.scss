@@ -536,7 +536,7 @@ ul#cardContainer {
       align-items: center;
       img {
         width: 60px;
-        height: 60px;
+        height: auto;
       }
       figcaption {
         margin-left: 15px;
@@ -600,7 +600,7 @@ ul#cardContainer {
     /* Control the thikness of your lines */
     stroke-width: 1px;
     @media #{ $medium } {
-      stroke-width: 2px;
+      stroke-width: 1.5px;
     }
   }
   .ct-area {
