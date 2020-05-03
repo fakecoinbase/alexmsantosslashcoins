@@ -1,0 +1,53 @@
+---
+layout: default
+name: coin
+---
+
+<div class="grid-container">
+	<article class="post">
+
+	  <div class="post-content">
+		<div id="coin-wrapper">
+		  <header class="coin-header">
+		    <figure class="image">
+		      <img class="coin-img">
+		      <figcaption>
+		        <h1 class="coin-name"></h1>
+		        <p class="coin-symbol"></p>
+		      </figcaption>
+		    </figure>
+		    <div class="market-info">
+		    	<div class="market-cap-rank-wrapper">Market Cap Rank: <span class="market-cap-rank">#</span></div>
+		    	<div class="market-cap-wrapper">Market Cap: <span class="market-cap">€</span></div>
+		    	<div class="market-cap-change-24h-wrapper">24h market cap change: <span class="market-cap-change-24h"></span></div>
+		    	<div class="high-24h-wrapper">24h high: <span class="high-24h">€</span></div>
+		    	<div class="low-24h-wrapper">24h low: <span class="low-24h">€</span></div>
+		    </div>
+		  </header>
+		  <div class="mid-wrapper">
+		    <div class="eur-value"><span class="price">€</span><span class="plus">+</span><span class="price_change_24h"></span></span></div>
+		    <div class="ct-chart" id="chart-coin"></div>
+		  </div>
+		  <table>
+		    <tr>
+		      <th>1h</th>
+		      <th>24h</th>
+		      <th>7d</th>
+		      <th>14d</th>
+		      <th>30d</th>
+		      <th>1y</th>
+		    </tr>
+		    <tr>
+		      <td class="change1h">%</td>
+		      <td class="change24h">%</td>
+		      <td class="change7d">%</td>
+		      <td class="change14d">%</td>
+		      <td class="change30d">%</td>
+		      <td class="change1y">%</td>
+		    </tr>
+		  </table>
+		</div>
+	  </div>
+
+	</article>
+</div>
