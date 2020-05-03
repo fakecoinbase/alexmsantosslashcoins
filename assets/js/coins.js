@@ -60,7 +60,7 @@ function coinGeckoApi() {
         if(liCard[i].classList.contains('coin-zrx')) {
           var myFixed = 6;
         }
-        
+
         //console.log(data);
         //liPrice[i].textContent = '€' + data[i].current_price;
         coinImg[i].src = data[i].image;
@@ -339,7 +339,7 @@ function coinbaseApi() {
             siteTitle[0].textContent = 'BTC €' + parseFloat(btc.price).toFixed(2) + ' · ETH €' + parseFloat(eth.price).toFixed(2) + ' - Crypto Coins Now';
 
         }).catch(function (error) {
-            console.log(error);
+
         });
     }
 

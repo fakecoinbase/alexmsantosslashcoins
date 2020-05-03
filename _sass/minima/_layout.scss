@@ -660,6 +660,12 @@ ul#cardContainer {
     border-radius: 25px;
     color: #fff !important;
     margin-bottom: 10px;
+    + div {
+      padding-top: 10px;
+      @media #{ $medium } {
+        padding: 0;
+      }
+    }
   }
   .upColor {
     background: $up-color;
