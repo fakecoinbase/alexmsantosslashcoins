@@ -14,7 +14,7 @@ const limarketCap24h = document.querySelectorAll(".market_cap");
 //const cbPrice = document.querySelectorAll(".cbprice");
 const siteTitle = document.querySelectorAll("title");
 const cardUl = document.getElementById("cardContainer");
-
+const liCard = document.querySelectorAll(".card");
 
 var myHeaders = new Headers();
 myHeaders.append('pragma', 'no-cache');
@@ -33,12 +33,40 @@ function coinGeckoApi() {
     var i;
     for (i = 0; i < data.length; ++i) {
 
+        if(liCard[i].classList.contains('coin-btc')) {
+          var myFixed = 2;
+        }
+        if(liCard[i].classList.contains('coin-eth')) {
+          var myFixed = 2;
+        }
+        if(liCard[i].classList.contains('coin-xrp')) {
+          var myFixed = 4;
+        }
+        if(liCard[i].classList.contains('coin-bch')) {
+          var myFixed = 2;
+        }
+        if(liCard[i].classList.contains('coin-ltc')) {
+          var myFixed = 2;
+        }
+        if(liCard[i].classList.contains('coin-eos')) {
+          var myFixed = 3;
+        }
+        if(liCard[i].classList.contains('coin-xlm')) {
+          var myFixed = 6;
+        }
+        if(liCard[i].classList.contains('coin-etc')) {
+          var myFixed = 3;
+        }
+        if(liCard[i].classList.contains('coin-zrx')) {
+          var myFixed = 6;
+        }
+        
         //console.log(data);
         //liPrice[i].textContent = '€' + data[i].current_price;
         coinImg[i].src = data[i].image;
         coinName[i].textContent = data[i].name;
         coinSymbol[i].textContent = data[i].symbol;
-        liChange24h[i].textContent = data[i].price_change_24h.toFixed(2) + '€ /24h';
+        liChange24h[i].textContent = data[i].price_change_24h.toFixed(myFixed) + '€ /24h';
         li1hChange[i].textContent = data[i].price_change_percentage_1h_in_currency.toFixed(1) + '%';
         li24hChange[i].textContent = data[i].price_change_percentage_24h_in_currency.toFixed(1) + '%';
         li7dChange[i].textContent = data[i].price_change_percentage_7d_in_currency.toFixed(1) + '%';
