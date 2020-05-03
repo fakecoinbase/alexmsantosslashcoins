@@ -21,6 +21,13 @@
 	<script src="{{ "/assets/js/coins.js" | relative_url }}"></script>
 {% endif %}
 
+{% if layout.name == "coin" %}
+  <script src="{{ "/assets/js/chartist.min.js" | relative_url }}"></script>
+  <script src="{{ "/assets/js/coin.js" | relative_url }}"></script>
+{% endif %}
+
+{% comment %}
+
 {% if page.title == "Bitcoin" %}
   <script src="{{ "/assets/js/chartist.min.js" | relative_url }}"></script>
   <script src="{{ "/assets/js/btc.js" | relative_url }}"></script>
@@ -65,3 +72,5 @@
   <script src="{{ "/assets/js/chartist.min.js" | relative_url }}"></script>
   <script src="{{ "/assets/js/0x.js" | relative_url }}"></script>
 {% endif %}
+
+{% endcomment %}

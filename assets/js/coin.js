@@ -19,7 +19,54 @@ const liLow24h = document.querySelectorAll(".low-24h");
 const siteTitle = document.querySelectorAll("title");
 const cardUl = document.getElementById("coin-wrapper");
 
-console.log(myCoin);
+
+switch (window.location.pathname) {
+  case "/coins/coins/bitcoin/":
+    myCoinGecko = "bitcoin";
+    myCoinBase = "BTC";
+    myFixed = 2;
+    break;
+  case "/coins/coins/ethereum/":
+    myCoinGecko = "ethereum";
+    myCoinBase = "ETH";
+    myFixed = 2;
+    break;
+  case "/coins/coins/xrp/":
+    myCoinGecko = "ripple";
+    myCoinBase = "XRP";
+    myFixed = 4;
+    break;
+  case "/coins/coins/bitcoin-cash/":
+    myCoinGecko = "bitcoin-cash";
+    myCoinBase = "BCH";
+    myFixed = 2;
+    break;
+  case "/coins/coins/litecoin/":
+    myCoinGecko = "litecoin";
+    myCoinBase = "LTC";
+    myFixed = 2;
+    break;
+  case "/coins/coins/eos/":
+    myCoinGecko = "eos";
+    myCoinBase = "EOS";
+    myFixed = 3;
+    break;
+  case "/coins/coins/stellar/":
+    myCoinGecko = "stellar";
+    myCoinBase = "XLM";
+    myFixed = 6;
+    break;
+  case "/coins/coins/ethereum-classic/":
+    myCoinGecko = "ethereum-classic";
+    myCoinBase = "ETC";
+    myFixed = 3;
+    break;
+  case "/coins/coins/0x/":
+    myCoinGecko = "0x";
+    myCoinBase = "ZRX";
+    myFixed = 6;
+    break;
+}
 
 var myHeaders = new Headers();
 myHeaders.append('pragma', 'no-cache');
@@ -32,7 +79,7 @@ headers: myHeaders,
 
 function coinGeckoApi() {
 
-  fetch("https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&ids=0x&sparkline=true&price_change_percentage=1h%2C24h%2C7d%2C14d%2C30d%2C1y", myInit)
+  fetch("https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&ids=" + myCoinGecko + "&sparkline=true&price_change_percentage=1h%2C24h%2C7d%2C14d%2C30d%2C1y", myInit)
   .then(response => response.json())
   .then(data => {
 
@@ -40,7 +87,7 @@ function coinGeckoApi() {
     coinImg[0].src = data[0].image;
     coinName[0].textContent = data[0].name;
     coinSymbol[0].textContent = data[0].symbol;
-    liChange24h[0].textContent = data[0].price_change_24h.toFixed(5) + '€ /24h';
+    liChange24h[0].textContent = data[0].price_change_24h.toFixed(myFixed) + '€ /24h';
     li1hChange[0].textContent = data[0].price_change_percentage_1h_in_currency.toFixed(1) + '%';
     li24hChange[0].textContent = data[0].price_change_percentage_24h_in_currency.toFixed(1) + '%';
     li7dChange[0].textContent = data[0].price_change_percentage_7d_in_currency.toFixed(1) + '%';
@@ -50,8 +97,8 @@ function coinGeckoApi() {
     liMarketCapRank[0].textContent = '#' + data[0].market_cap_rank;
     liMarketCap[0].textContent = '€' + data[0].market_cap;
     limarketCap24h[0].textContent = data[0].market_cap_change_percentage_24h.toFixed(2) + '%';
-    liHigh24h[0].textContent = '€' + data[0].high_24h.toFixed(5);
-    liLow24h[0].textContent = '€' + data[0].low_24h.toFixed(5);
+    liHigh24h[0].textContent = '€' + data[0].high_24h.toFixed(myFixed);
+    liLow24h[0].textContent = '€' + data[0].low_24h.toFixed(myFixed);
 
     function sparklines() {
 
@@ -172,14 +219,14 @@ function coinbaseApi() {
 
     var coin;
 
-    fetch('https://api.pro.coinbase.com/products/ZRX-EUR/ticker')
+    fetch('https://api.pro.coinbase.com/products/'+ myCoinBase +'-EUR/ticker')
         .then(function (response) {
             return response.json();
         }).then(function (data) {
             coin = data;
 
-            liPrice[0].textContent = '€' + parseFloat(coin.price).toFixed(5);
-            siteTitle[0].textContent = 'ZRX €' + parseFloat(coin.price).toFixed(5) + ' - Crypto Coins Now';
+            liPrice[0].textContent = '€' + parseFloat(coin.price).toFixed(myFixed);
+            siteTitle[0].textContent = myCoinBase + ' €' + parseFloat(coin.price).toFixed(myFixed) + ' - Crypto Coins Now';
 
         }).catch(function (error) {
             console.log(error);
