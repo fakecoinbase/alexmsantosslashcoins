@@ -10,7 +10,11 @@ const li7dChange = document.querySelectorAll(".change7d");
 const li14dChange = document.querySelectorAll(".change14d");
 const li30dChange = document.querySelectorAll(".change30d");
 const li1yChange = document.querySelectorAll(".change1y");
-const limarketCap24h = document.querySelectorAll(".market_cap");
+const liMarketCapRank = document.querySelectorAll(".market-cap-rank");
+const liMarketCap = document.querySelectorAll(".market-cap");
+const limarketCap24h = document.querySelectorAll(".market-cap-change-24h");
+const liHigh24h = document.querySelectorAll(".high-24h");
+const liLow24h = document.querySelectorAll(".low-24h");
 //const cbPrice = document.querySelectorAll(".cbprice");
 const siteTitle = document.querySelectorAll("title");
 const cardUl = document.getElementById("coin-wrapper");
@@ -31,7 +35,7 @@ function coinGeckoApi() {
   .then(response => response.json())
   .then(data => {
 
-    //console.log(data[0]);
+    console.log(data[0]);
     //liPrice[0].textContent = '€' + data[0].current_price;
     coinImg[0].src = data[0].image;
     coinName[0].textContent = data[0].name;
@@ -43,15 +47,19 @@ function coinGeckoApi() {
     li14dChange[0].textContent = data[0].price_change_percentage_14d_in_currency.toFixed(1) + '%';
     li30dChange[0].textContent = data[0].price_change_percentage_30d_in_currency.toFixed(1) + '%';
     li1yChange[0].textContent = data[0].price_change_percentage_1y_in_currency.toFixed(1) + '%';
+    liMarketCapRank[0].textContent = '#' + data[0].market_cap_rank;
+    liMarketCap[0].textContent = '€' + data[0].market_cap;
     limarketCap24h[0].textContent = data[0].market_cap_change_percentage_24h.toFixed(2) + '%';
+    liHigh24h[0].textContent = '€' + data[0].high_24h.toFixed(2);
+    liLow24h[0].textContent = '€' + data[0].low_24h.toFixed(2);
 
     function sparklines() {
 
-        var btcValues = data[0].sparkline_in_7d.price;
+        var coinValues = data[0].sparkline_in_7d.price;
 
-        var btcData = {
+        var coinData = {
           labels: [],
-          series: [btcValues]
+          series: [coinValues]
         };
 
         var options = {
@@ -88,7 +96,7 @@ function coinGeckoApi() {
               }]
         ];
 
-        new Chartist.Line('#chart-btc', btcData, options, responsiveOptions);
+        new Chartist.Line('#chart-coin', coinData, options, responsiveOptions);
 
     }
 
@@ -162,16 +170,16 @@ function coinGeckoApi() {
 
 function coinbaseApi() {
 
-    var btc;
+    var coin;
 
     fetch('https://api.pro.coinbase.com/products/BTC-EUR/ticker')
         .then(function (response) {
             return response.json();
         }).then(function (data) {
-            btc = data;
+            coin = data;
 
-            liPrice[0].textContent = '€' + parseFloat(btc.price).toFixed(2);
-            siteTitle[0].textContent = 'BTC €' + parseFloat(btc.price).toFixed(2) + ' - Crypto Coins Now';
+            liPrice[0].textContent = '€' + parseFloat(coin.price).toFixed(2);
+            siteTitle[0].textContent = 'BTC €' + parseFloat(coin.price).toFixed(2) + ' - Crypto Coins Now';
 
         }).catch(function (error) {
             console.log(error);
