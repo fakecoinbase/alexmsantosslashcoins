@@ -237,7 +237,3 @@ coinbaseApi();
 setInterval(coinbaseApi, 5000);
 coinGeckoApi();
 setInterval(coinGeckoApi, 20000);
-
-window.addEventListener("load", function(event) {
-  console.log("Todos os recursos terminaram o carregamento!");
-});
