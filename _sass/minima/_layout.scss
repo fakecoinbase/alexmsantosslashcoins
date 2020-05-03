@@ -581,12 +581,14 @@ ul#cardContainer {
       line-height: 42px;
       margin-bottom: 5px;
       font-weight: 700;
-      display: block;
       @media #{ $medium } {
         font-size: 44px;
         line-height: 48px;
         display: inline;
         margin-right: 10px;
+        + div {
+          display: inline;
+        }
       }
     }
   }
@@ -652,20 +654,17 @@ ul#cardContainer {
       }
     }
   }
-  .upColor {
-    background: $up-color;
+  .upColor,
+  .downColor {
     padding: 0 8px;
     border-radius: 25px;
     color: #fff !important;
-    display: block;
-    margin-bottom: 6px;
+    margin-bottom: 10px;
+  }
+  .upColor {
+    background: $up-color;
   }
   .downColor {
     background: $down-color;
-    padding: 0 8px;
-    border-radius: 25px;
-    color: #fff !important;
-    display: block;
-    margin-bottom: 6px;
   }
 }

@@ -14,7 +14,7 @@ name: homepage
     <ul id="cardContainer" class="coinGecko">
     {% assign coins = site.coins | sort: 'date' %}
     {% for coin in coins %}
-      <li class="card">
+      <li class="card coin-{{ coin.symbol }}">
         <a href="{{ site.baseurl }}/coins/{{ coin.slug }}">
           <header class="card-header">
             <figure class="image">
