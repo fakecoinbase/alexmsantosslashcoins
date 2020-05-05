@@ -556,7 +556,7 @@ ul#cardContainer {
       line-height: 23px;
       margin-bottom: 30px;
       @media #{ $medium } {
-        text-align: right;
+        width: 300px;
       }
       .high-24h {
         color: #4eaf0a;

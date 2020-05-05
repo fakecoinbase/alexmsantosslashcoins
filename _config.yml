@@ -26,6 +26,7 @@ baseurl: "/coins" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: coingecko
 github_username:  coingecko
+#destination: /Users/alexobs/Sites/test-site/
 
 # Build settings
 theme: minima
