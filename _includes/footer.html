@@ -16,12 +16,12 @@
 
 </footer>
 
-{% if layout.name == "homepage" %}
+{% if page.layout == "home" %}
 	<script src="{{ "/assets/js/chartist.min.js" | relative_url }}"></script>
 	<script src="{{ "/assets/js/coins.js" | relative_url }}"></script>
 {% endif %}
 
-{% if layout.name == "coin" %}
+{% if page.layout == "coin" %}
   <script src="{{ "/assets/js/chartist.min.js" | relative_url }}"></script>
   <script src="{{ "/assets/js/coin.js" | relative_url }}"></script>
 {% endif %}
