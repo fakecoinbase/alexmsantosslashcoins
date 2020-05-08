@@ -15,15 +15,6 @@ layout: default
 		        <p class="coin-symbol">{{ page.symbol }}</p>
 		      </figcaption>
 		    </figure>
-		    <div class="market-info">
-		    	<div class="market-cap-rank-wrapper">Market Cap Rank: <span class="market-cap-rank">#</span></div>
-		    	<div class="market-cap-wrapper">Market Cap: <span class="market-cap">€</span></div>
-		    	<div class="market-cap-change-24h-wrapper">24h market cap change: <span class="market-cap-change-24h"></span></div>
-		    	<div class="high-24h-wrapper">24h high: <span class="high-24h">€</span></div>
-		    	<div class="low-24h-wrapper">24h low: <span class="low-24h">€</span></div>
-		    </div>
-		  </header>
-		  <div class="mid-wrapper">
 		    <div class="eur-value">
 		    	<span class="price">€</span>
 		    	<div>
@@ -31,8 +22,18 @@ layout: default
 			    	<span class="price_change_24h"></span>
 			    </div>
 			</div>
-		    <div class="ct-chart" id="chart-coin"></div>
+		  </header>
+		  <div class="mid-wrapper">
+		  	<div class="coin-description">{{ content }}</div>
+		    <div class="market-info">
+		    	<div class="market-cap-rank-wrapper">Market Cap Rank: <span class="market-cap-rank">#</span></div>
+		    	<div class="market-cap-wrapper">Market Cap: <span class="market-cap">€</span></div>
+		    	<div class="market-cap-change-24h-wrapper">24h market cap change: <span class="market-cap-change-24h"></span></div>
+		    	<div class="high-24h-wrapper">24h high: <span class="high-24h">€</span></div>
+		    	<div class="low-24h-wrapper">24h low: <span class="low-24h">€</span></div>
+		    </div>
 		  </div>
+		  <div class="ct-chart" id="chart-coin"></div>
 		  <table>
 		    <tr>
 		      <th>1h</th>

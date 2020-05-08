@@ -11,7 +11,7 @@ layout: default
   <div class="post-content">
 
     <ul id="cardContainer" class="coinGecko">
-    {% assign coins = site.coins | sort: 'date' %}
+    {% assign coins = site.coins | sort: 'market-cap-rank' %}
     {% for coin in coins %}
       <li class="card coin-{{ coin.symbol }}">
         <a href="{{ site.baseurl }}/coins/{{ coin.slug }}">
@@ -29,7 +29,7 @@ layout: default
             </div>
           </header>
           <div class="mid-wrapper">
-            <div class="eur-value"><span class="price">€</span><div><span class="plus">+</span><span class="price_change_24h"></span></div></span></div>
+            <div class="eur-value"><span class="price">€</span><div><span class="plus">+</span><span class="price_change_24h">€ /24h</span></div></span></div>
             <div class="ct-chart" id="chart-{{ coin.symbol }}"></div>
           </div>
           <table>
