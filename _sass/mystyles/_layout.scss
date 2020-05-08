@@ -554,20 +554,27 @@ ul#cardContainer {
   }
   .eur-value {
     font-size: 13px;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
+    margin-top: 35px;
     @media #{ $medium } {
       font-size: 15px;
+      margin-top: 0;
+      display: flex;
+      align-items: baseline;
     }
   }
   .price {
-    font-size: 38px;
-    line-height: 42px;
-    margin-bottom: 5px;
+    font-size: 32px;
+    line-height: 36px;
+    margin-bottom: 10px;
     font-weight: 700;
+    border: 1px solid;
+    border-radius: 27px;
+    padding: 1px 12px;
+    display: inline-block;
     @media #{ $medium } {
-      font-size: 44px;
-      line-height: 48px;
-      display: inline;
+      font-size: 38px;
+      line-height: 42px;
       margin-right: 10px;
       + div {
         display: inline;
@@ -670,16 +677,9 @@ ul#cardContainer {
   }
   .upColor,
   .downColor {
-    padding: 0 8px;
-    border-radius: 25px;
+    padding: 1px 12px;
+    border-radius: 27px;
     color: #fff !important;
-    margin-bottom: 10px;
-    + div {
-      padding-top: 10px;
-      @media #{ $medium } {
-        padding: 0;
-      }
-    }
   }
   .upColor {
     background: $up-color;
