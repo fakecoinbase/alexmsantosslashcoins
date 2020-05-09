@@ -559,8 +559,7 @@ ul#cardContainer {
     @media #{ $medium } {
       font-size: 15px;
       margin-top: 0;
-      display: flex;
-      align-items: baseline;
+      margin-bottom: 10px;
     }
   }
   .price {
@@ -575,9 +574,10 @@ ul#cardContainer {
     @media #{ $medium } {
       font-size: 38px;
       line-height: 42px;
-      margin-right: 10px;
       + div {
-        display: inline;
+        @media #{ $medium } {
+          text-align: right;
+        }
       }
     }
   }

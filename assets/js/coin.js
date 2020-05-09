@@ -139,7 +139,7 @@ function coinGeckoApi() {
               height: '270px'
               }],
           ['screen and (min-width: 950px)', {
-              height: '300px'
+              height: '370px'
               }]
         ];
 
