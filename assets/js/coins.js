@@ -30,6 +30,9 @@ function coinGeckoApi() {
   fetch("https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&ids=bitcoin%2Cethereum%2Cripple%2Clitecoin%2Cbitcoin-cash%2Ceos%2Cstellar%2Cethereum-classic%2C0x&order=market_cap_desc&per_page=100&page=1&sparkline=true&price_change_percentage=1h%2C24h%2C7d%2C14d%2C30d%2C1y", myInit)
   .then(response => response.json())
   .then(data => {
+
+    //cardUl.style.visibility = "visible";
+
     var i;
     for (i = 0; i < data.length; ++i) {
 
@@ -62,7 +65,7 @@ function coinGeckoApi() {
         }
 
         //console.log(data);
-        //liPrice[i].textContent = '€' + data[i].current_price;
+        //liPrice[i].textContent = '€' + data[i].current_price.toFixed(myFixed);
         coinImg[i].src = data[i].image;
         coinName[i].textContent = data[i].name;
         coinSymbol[i].textContent = data[i].symbol;
